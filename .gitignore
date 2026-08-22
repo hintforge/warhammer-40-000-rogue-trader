@@ -25,6 +25,11 @@
 !CLAUDE.md
 !DISCLAIMER.md
 
+# --- README storefront + status-card assets (flash-thumbnail/status-card convention, 2026-08-21) ---
+# corpus-deploy should generate these whitelist lines going forward (framework fix owed).
+!README.md
+!assets/**
+
 # --- Declared vector-extensions (one !<ext>/** per manifest entry) ---
 !puzzles/**
 !npcs/**
