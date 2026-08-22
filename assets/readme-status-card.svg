@@ -111,8 +111,7 @@
   <text class="mono foot" x="118" y="720" font-style="italic">Save reading is hard to spoiler-gate; any leak surfaces there, not in guide answers.</text>
 
   <!-- footer -->
-  <rect x="78" y="742" width="150" height="26" fill="var(--primary)"/>
-  <text class="mono foot" x="246" y="762">github.com/hintforge/warhammer-40-000-rogue-trader</text>
+  <text class="mono foot" x="78" y="762">github.com/hintforge/warhammer-40-000-rogue-trader</text>
   <text class="mono foot" x="1422" y="762" text-anchor="end">reads only the files you control</text>
 
   <!-- worn 'CHECKED' stamp (stale, not VERIFIED) -->
