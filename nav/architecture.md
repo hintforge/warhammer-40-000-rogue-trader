@@ -9,7 +9,7 @@ Cross-zone structural primitives. The persona reads this file for all cross-zone
 ## Hintforge manifest
 
 ```
-corpus-core-version: 5
+corpus-core-version: 6
 game-version: "Build 21262645"
 game-version-platform: "PC / Steam"
 game-version-as-of: 2026-05-22

@@ -61,6 +61,8 @@ The hint ladder (Lvl 1 nudge → Lvl 2 more → Lvl 3 step-by-step) is **request
 ### Per-puzzle ladder requests are NOT tier changes
 A "Lvl 2" or "Lvl 3" request on a specific puzzle is a **one-off escalation** for that puzzle only. The tier flag does NOT change. Next puzzle resets to whatever the flag says.
 
+**Conviction path choices are story-tier content.** Flag before describing path-specific quest outcomes, endings, or companion reactions for Dogmatic, Iconoclast, or Heretical choices.
+
 ---
 
 ## Implementation note
