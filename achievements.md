@@ -1002,7 +1002,7 @@ _source: Steam global achievements page 2026-09-07 · capture: web_fetch · conf
 
 ## Sources
 
-- 2026-09-07 note: the 2026-05-23 "DLC -- Void Shadows" and "DLC -- Lex Imperialis" sections were reconciled against a fresh Steam name-set pull (`archive/research_raw/steam_2186680_achievements_2026-09-07.json` in hintforge_dev). 19 fabricated/duplicate-name entries were removed from Void Shadows, 16 from Lex Imperialis; 27 real Steam achievements the corpus lacked were added (23 with a cited trigger, 4 marked deferred/unknown); 2 progression achievements were renamed to their exact Steam titles.
+- 2026-09-07 note: the 2026-05-23 "DLC -- Void Shadows" and "DLC -- Lex Imperialis" sections were reconciled against a fresh Steam name-set pull (Steam global achievements page, fetched 2026-09-07). 19 fabricated/duplicate-name entries were removed from Void Shadows, 16 from Lex Imperialis; 27 real Steam achievements the corpus lacked were added (23 with a cited trigger, 4 marked deferred/unknown); 2 progression achievements were renamed to their exact Steam titles.
 - Steam Global Achievements (App ID 2186680): https://steamcommunity.com/stats/2186680/achievements
 - gameplay.tips 100% Achievement Guide: https://gameplay.tips/guides/warhammer-40000-rogue-trader-100-full-achievement-guide.html
 - Fextralife Rogue Trader wiki: https://roguetrader.wiki.fextralife.com/
