@@ -63,7 +63,7 @@ _source: P1 research cascade 2026-05-22 · capture: web_fetch · confidence: hig
 | "Those Who Are About to Die Salute You" | Ch3 1st arena | Permanent | Let the Wild Khymerae kill all other gladiators |
 | "Thorough Audit" achievement | Ch3 (on Leethus) | Permanent | Open all containers on Leethus |
 
-> **Cross-system dependency** -- see `dependencies.md` DEP-006: A second "Thorough Audit" achievement exists in the Lex Imperialis DLC (open the Glaito-only chest at li-leethus-sand-zone, Ch4, requires Solomorne's Familiar GL-8-0); this base-game Ch3 version and the DLC Ch4 version share a name but are tracked separately by Steam.
+> **Cross-system dependency** -- see `dependencies.md` DEP-006 (corrected 2026-09-07): there is only ONE Steam "Thorough Audit" achievement (3.5% global). If Lex Imperialis is owned, the Glaito-only chest at li-leethus-sand-zone (requires Solomorne's Familiar GL-8-0) is one of the containers this achievement needs -- not a second, separate achievement.
 | "Pack Animal" achievement | Ch3 | Permanent | Drukhari/Sslyth interaction (hidden) |
 
 ## Chapter 4
