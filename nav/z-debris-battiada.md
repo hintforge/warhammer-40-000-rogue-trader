@@ -24,7 +24,7 @@ Warp from Ch.4 end into Ch.5 systems.
 1. **Scan ice world** -- System map action; reveals Signal From the Planet.
    - `point_of_no_return:` none
 2. **Land at signal source** -- 3 skill tests available (Polyglot achievement trigger).
-   _source: P2 research cascade 2026-05-23 · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none · achievement: polyglot · achievement-hidden: no · trigger_type: discovery_
+   _source: P2 research cascade 2026-05-23 · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none · achievement: Polyglot · achievement-hidden: no · trigger_type: discovery_
    - `point_of_no_return:` none
 3. **Main cogitator (Tech-Use -10)** -- Progress gate; easy.
    - `point_of_no_return:` none
