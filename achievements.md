@@ -236,7 +236,7 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
 ### This Is a Job for the Lord Captain! (HIDDEN)
-- **id:** Lord_Captain_Job | **hidden:** yes | **global:** 23.2%
+- **id:** This_Is_a_Job_for_the_Lord_Captain | **hidden:** yes | **global:** 23.2%
 - **trigger:** Solo a specific Ch4 encounter as the Rogue Trader
 - **missable:** yes | **PoNR:** Ch4
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
@@ -269,7 +269,7 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
 ### The Not-So-Bottomless Pit (HIDDEN)
-- **id:** Not_So_Bottomless_Pit | **hidden:** yes | **global:** 10.3%
+- **id:** The_Not_So_Bottomless_Pit | **hidden:** yes | **global:** 10.3%
 - **trigger:** Augur's Anomaly Pasqal choice (Ch3-4, specific companion decision)
 - **missable:** yes | **PoNR:** Ch3-4 | **genre:** social
 - **vector-binding:** `sections/missables.md` Ch4 table
@@ -494,7 +494,7 @@ Found only by deliberate exploration of a non-obvious mechanic.
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
 ### Those Who Are About to Die Salute You
-- **id:** Those_Who_Are_About_to_Die | **hidden:** no | **global:** 2.1%
+- **id:** Those_Who_Are_About_to_Die_Salute_You | **hidden:** no | **global:** 2.1%
 - **trigger:** Let the Wild Khymerae kill all other gladiators in the first arena fight (Ch3 -- requires deliberate non-intervention)
 - **missable:** yes | **PoNR:** Ch3 first arena fight
 - **vector-binding:** `npcs/index.md` Drukhari row (Khymera)
@@ -523,7 +523,7 @@ _DLC membership re-verified 2026-09-07 against the TrueSteamAchievements per-DLC
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
 ### This Task Is for the Lord Captain Only (HIDDEN)
-- **id:** Lord_Captain_Task_Only | **hidden:** yes | **global:** 4.0%
+- **id:** This_Task_Is_for_the_Lord_Captain_Only | **hidden:** yes | **global:** 4.0%
 - **trigger:** Solo the blood-bath / Magus encounter (Ch4)
 - **missable:** yes | **PoNR:** Ch4
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
@@ -774,7 +774,7 @@ _DLC membership re-verified 2026-09-07 against the TrueSteamAchievements per-DLC
 - **vector-binding:** `nav/li-palace-of-justice.md`
 
 ### Of Course I Know What I'm Doing! (HIDDEN)
-- **id:** Of_Course_I_Know | **hidden:** yes | **global:** 3.1%
+- **id:** Of_Course_I_Know_What_Im_Doing | **hidden:** yes | **global:** 3.1%
 - **trigger:** Complete the tank-driving sequence at li-leethus-surface (RT drives the tank; specific dialogue choice)
 - **missable:** yes | **PoNR:** li-leethus-surface quest window
 - **vector-binding:** `nav/li-leethus-surface.md`

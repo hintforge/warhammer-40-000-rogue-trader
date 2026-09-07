@@ -22,7 +22,7 @@ From z-chasm (NW arena portal, after first-arena unlock).
 ## Sequential gates
 
 1. **First arena** -- 2 Wild Khymerae + 4 Captive Soldiers + 4 Captive Bruisers. "Those Who Are About to Die" achievement if all humans die.
-   _source: P2 research cascade 2026-05-23 · capture: web_fetch · confidence: high · enemy-tier: 1 · puzzle-tier: 0 · category: mainline · spoiler: progression · achievement: Those_Who_Are_About_to_Die · achievement-hidden: no · trigger_type: mastery_
+   _source: P2 research cascade 2026-05-23 · capture: web_fetch · confidence: high · enemy-tier: 1 · puzzle-tier: 0 · category: mainline · spoiler: progression · achievement: Those_Who_Are_About_to_Die_Salute_You · achievement-hidden: no · trigger_type: mastery_
    - `point_of_no_return:` none
 2. **Second arena** -- Marazhai or substitute fighter.
    - `point_of_no_return:` none
