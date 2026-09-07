@@ -4,7 +4,7 @@
 **last_reconciled:** 2026-09-07
 **stub_source:** Steam (App ID 2186680)
 **stub_fetched:** 2026-09-07
-**stub_count:** 133 total (86 base-game; 37 DLC -- 9 Void Shadows + 28 Lex Imperialis; 10 Unattributed)
+**stub_count:** 133 total (65 base-game; 68 DLC -- 21 Void Shadows + 20 Lex Imperialis + 27 The Infinite Museion)
 **research_run:** P3 cascade 2026-05-23; DLC name-set reconciliation 2026-09-07
 
 Coverage outcome: **129 resolved / 4 deferred / 0 unreachable**.
@@ -187,14 +187,6 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **vector-binding:** `sections/missables.md` Secret Ending Chain
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
 
-### Slumdog Overlord
-- **id:** Slumdog_Overlord | **hidden:** no | **global:** 25.7%
-- **trigger:** Decide the fate of the voidship freight line (Ch4)
-- **missable:** yes | **PoNR:** Ch4 window
-- **vector-binding:** `sections/missables.md` Ch4 table
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-
 ### Work of the Holy Ordos
 - **id:** Work_of_the_Holy_Ordos | **hidden:** no | **global:** 2.1%
 - **trigger:** Hand over Idira, Yrliet, and Marazhai to the Inquisition (Ch4-5; anti-companion choice)
@@ -208,8 +200,6 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **missable:** yes | **PoNR:** Ch4 Quetza Temer encounter
 - **vector-binding:** `npcs/index.md` Named Bosses (Calligos Winterscale)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-
 
 ### Imperial Route (HIDDEN)
 - **id:** Imperial_Route | **hidden:** yes | **global:** 9.7%
@@ -232,7 +222,6 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **vector-binding:** `sections/missables.md` Ch4 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
-
 ### Oath to the Stars (HIDDEN)
 - **id:** Oath_to_the_Stars | **hidden:** yes | **global:** 1.3%
 - **trigger:** Inquisitor-oath outcome (Ch4 end, specific dialogue)
@@ -240,25 +229,15 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **vector-binding:** `sections/missables.md` Ch4 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** story
 
-
-
-
 ### Knee-Deep in Chaos (HIDDEN)
 - **id:** Knee_Deep_in_Chaos | **hidden:** yes | **global:** 2.3%
 - **trigger:** Full Heretical immersion (Ch4-5, Heretical conviction path)
 - **missable:** yes | **PoNR:** Ch4-5 | **genre:** conviction
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
-
 ### This Is a Job for the Lord Captain! (HIDDEN)
 - **id:** Lord_Captain_Job | **hidden:** yes | **global:** 23.2%
 - **trigger:** Solo a specific Ch4 encounter as the Rogue Trader
-- **missable:** yes | **PoNR:** Ch4
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### This Task Is for the Lord Captain Only (HIDDEN)
-- **id:** Lord_Captain_Task_Only | **hidden:** yes | **global:** 4.0%
-- **trigger:** Solo the blood-bath / Magus encounter (Ch4)
 - **missable:** yes | **PoNR:** Ch4
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
@@ -276,13 +255,6 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **vector-binding:** `sections/missables.md` Secret Ending Chain
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
 
-### At Home Among the Poor
-- **id:** At_Home_Among_the_Poor | **hidden:** no | **global:** 6.1%
-- **trigger:** Mingle with lower-rank people in Shadow Quarters (Ch2; requires specific social dialogue choices)
-- **missable:** yes | **PoNR:** Ch2 (Shadow Quarters closes Ch3+)
-- **vector-binding:** `sections/missables.md` Ch2 table, `nav/architecture.md` z-foot-shadow
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression | **genre:** social
-
 ### Frog Trader (HIDDEN)
 - **id:** Frog_Trader | **hidden:** yes | **global:** 13.8%
 - **trigger:** Complete the Footfall mutant-merchant quest (Ch2, hidden NPC interaction)
@@ -290,33 +262,11 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **vector-binding:** `sections/missables.md` Ch2 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
 
-### Mysteries of the Ecclesiarchy (HIDDEN)
-- **id:** Mysteries_of_the_Ecclesiarchy | **hidden:** yes | **global:** 10.9%
-- **trigger:** Discover the Father Hieronymus / Drusian secret (Ch2 specific NPC quest path)
-- **missable:** yes | **PoNR:** Ch2
-- **vector-binding:** `sections/missables.md` Ch2 table
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
-
-### You Were Warned
-- **id:** You_Were_Warned | **hidden:** no | **global:** 3.8%
-- **trigger:** Conduct the telepathic ritual in Ch1 with Idira as the assistant (specific companion assignment)
-- **missable:** yes | **PoNR:** Ch1 ritual event
-- **vector-binding:** `sections/missables.md` Ch1 table
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none | **genre:** social
-
-
 ### Thank You for Waiting (HIDDEN)
 - **id:** Thank_You_for_Waiting | **hidden:** yes | **global:** 2.9%
 - **trigger:** Patience-rewarded NPC interaction (Ch4, non-obvious wait mechanic)
 - **missable:** yes | **PoNR:** Ch4
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Pack Animal (HIDDEN)
-- **id:** Pack_Animal | **hidden:** yes | **global:** 1.5%
-- **trigger:** Drukhari/Sslyth interaction (Ch3, non-obvious NPC interaction)
-- **missable:** yes | **PoNR:** Ch3
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
 
 ### The Not-So-Bottomless Pit (HIDDEN)
 - **id:** Not_So_Bottomless_Pit | **hidden:** yes | **global:** 10.3%
@@ -324,8 +274,6 @@ Requires a non-default choice, or mutually exclusive with another outcome.
 - **missable:** yes | **PoNR:** Ch3-4 | **genre:** social
 - **vector-binding:** `sections/missables.md` Ch4 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-
 
 ### Deepest Conviction
 - **id:** Deepest_Conviction | **hidden:** no | **global:** 4.0%
@@ -383,26 +331,11 @@ Requires skill demonstration or a restriction beyond normal play.
 - **vector-binding:** `sections/missables.md` Ch1 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
 
-### Stay Away From My Psykers!
-- **id:** Stay_Away_From_My_Psykers | **hidden:** no | **global:** 11.8%
-- **trigger:** Save all Astropaths in the telepathic ritual (Ch1)
-- **missable:** yes | **PoNR:** Ch1 ritual
-- **vector-binding:** `sections/missables.md` Ch1 table
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
 ### Overcome and Overpower
 - **id:** Overcome_and_Overpower | **hidden:** no | **global:** 6.5%
 - **trigger:** Beat the game on Daring+ (any ending)
 - **missable:** no | **PoNR:** full run
 - **prereqs:** Daring+ from run start
-- **vector-binding:** `settings.md` Difficulty
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
-### "There Is Only War..."
-- **id:** There_Is_Only_War | **hidden:** no | **global:** 0.7%
-- **trigger:** Complete the game in Grim Darkness ironman mode
-- **missable:** no | **PoNR:** full run commitment
-- **prereqs:** Grim Darkness from run start; cannot change difficulty once set
 - **vector-binding:** `settings.md` Difficulty
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
 
@@ -433,74 +366,10 @@ Requires skill demonstration or a restriction beyond normal play.
 - **vector-binding:** `npcs/index.md` Named Bosses (Defiler)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
-### Malum Se Ipsum Devorat
-- **id:** Malum_Se_Ipsum_Devorat | **hidden:** no | **global:** 2.7%
-- **trigger:** Force the Magus (Ch4) to kill himself with his own attack (specific combat manipulation)
-- **missable:** yes | **PoNR:** Ch4 Magus encounter
-- **vector-binding:** `npcs/index.md` Named Bosses (Magus)
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-
-### A Little Too Crowded
-- **id:** A_Little_Too_Crowded | **hidden:** no | **global:** 1.7%
-- **trigger:** Daring+; have 15+ creatures simultaneously in the Extrapolation area (Ch4)
-- **missable:** yes | **PoNR:** Ch4 Extrapolation area
-- **prereqs:** Daring+
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Best Pilots in the Sector
-- **id:** Best_Pilots_in_the_Sector | **hidden:** no | **global:** 10.7%
-- **trigger:** Destroy 4 ships using attack craft (void combat)
-- **missable:** no | **PoNR:** none
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
-### Death Waltz
-- **id:** Death_Waltz | **hidden:** no | **global:** 30.8%
-- **trigger:** Kill 3 enemies in one turn via the Death Waltz ability (Bladedancer T1 DLC archetype; requires Void Shadows)
-- **missable:** no | **PoNR:** none (requires Bladedancer archetype, Void Shadows DLC)
-- **notes:** P1 incorrectly attributed to Assassin archetype; P3 confirms Bladedancer-exclusive. `spoiler: dlc:Void Shadows`
-- **vector-binding:** `items/abilities.md` Bladedancer section
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
-### Friendly Warp-Fire
-- **id:** Friendly_Warp_Fire | **hidden:** no | **global:** 4.6%
-- **trigger:** Daring+; knock out a companion in the Warp Relay area (Ch4-5 specific location)
-- **missable:** yes (specific area) | **PoNR:** Ch4-5
-- **prereqs:** Daring+
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Collateral Damage
-- **id:** Collateral_Damage | **hidden:** no | **global:** 3.0%
-- **trigger:** Daring+; knock out a companion with a tank shot
-- **missable:** yes (tank availability) | **PoNR:** Ch4
-- **prereqs:** Daring+
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Valuable Player
-- **id:** Valuable_Player | **hidden:** no | **global:** 0.8%
-- **trigger:** Daring+; kill 3+ enemies in one fight via Obstruct Vision ability (Ch4-5)
-- **missable:** yes | **PoNR:** Ch4-5
-- **prereqs:** Daring+
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Release the Hound!
-- **id:** Release_the_Hound | **hidden:** no | **global:** 0.5%
-- **trigger:** Daring+; Cyber-Mastiff bites 7 different enemies in one turn (Ch4-5)
-- **missable:** yes | **PoNR:** Ch4-5 (Jae companion alive, questline complete)
-- **prereqs:** Daring+; Cyber-Mastiff from Jae questline
-- **vector-binding:** `items/abilities.md` Support Items
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
 ### Silver-Tongued Diplomat
 - **id:** Silver_Tongued_Diplomat | **hidden:** no | **global:** 8.5%
 - **trigger:** Avoid 7 combats via dialogue throughout the game
 - **missable:** no | **PoNR:** full run (cumulative)
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
-### Tactician on a Galactic Scale
-- **id:** Tactician_on_a_Galactic_Scale | **hidden:** no | **global:** 16.0%
-- **trigger:** Use every special-zone type in void battles (finite set of zone types)
-- **missable:** no | **PoNR:** none (achievable throughout; see collection note)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
 
 ## Collection
@@ -548,33 +417,12 @@ Finite, enumerable set that must be completed in full.
 - **vector-binding:** `nav/architecture.md` Ch2 Optional Content Registry (colonies)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
 
-### Well-Deserved Rest
-- **id:** Well_Deserved_Rest | **hidden:** no | **global:** 2.2%
-- **trigger:** Take a bath with every available companion in the Lord Captain's Quarters
-- **missable:** yes (per-companion -- closes if companion dies) | **PoNR:** Ch3+ (each companion's life window)
-- **vector-binding:** `nav/architecture.md` z-ship-quarters, `sections/missables.md`
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none | **genre:** social
-
-### Thorough Audit
-- **id:** Thorough_Audit | **hidden:** no | **global:** 3.5%
-- **trigger:** Open all containers on the Leethus (Ch3 -- specific ship zone)
-- **missable:** yes | **PoNR:** Ch3
-- **vector-binding:** `nav/architecture.md` Ch3 zone table
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
 ### Adventurous Archaeologist
 - **id:** Adventurous_Archaeologist | **hidden:** no | **global:** 9.9%
 - **trigger:** Solve all puzzles at the Unidentified Ruins in Latotian's Passage (both puzzle #1 and #2)
 - **missable:** yes | **PoNR:** Ch5 lockout
 - **prereqs:** complete `puzzles/unidentified_ruins_1.md` and `puzzles/unidentified_ruins_2.md`
 - **vector-binding:** `puzzles/unidentified_ruins_1.md`, `puzzles/unidentified_ruins_2.md`
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
-
-### Thrill of the Game
-- **id:** Thrill_of_the_Game | **hidden:** no | **global:** 9.0%
-- **trigger:** Find all impostors in the Chapter 2 minigame
-- **missable:** yes | **PoNR:** Ch2 window
-- **vector-binding:** `sections/missables.md` Ch2 table
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
 
 ### Master of Trade
@@ -604,7 +452,6 @@ Cumulative count of any action; no finite-set ceiling.
 - **trigger:** Win 10 void combats (cumulative)
 - **missable:** no | **PoNR:** none
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
 
 ### Precise Defence
 - **id:** Precise_Defence | **hidden:** no | **global:** 0.5%
@@ -653,13 +500,6 @@ Found only by deliberate exploration of a non-obvious mechanic.
 - **vector-binding:** `npcs/index.md` Drukhari row (Khymera)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
-### Pet the Dog
-- **id:** Pet_the_Dog | **hidden:** no | **global:** 4.1%
-- **trigger:** Pet Glaito (the dog on the Voidship) -- non-obvious optional NPC interaction
-- **missable:** no | **PoNR:** none (always accessible Ch2+)
-- **vector-binding:** `items/abilities.md` Support Items
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
-
 ### Amends to the Dead
 - **id:** Amends_to_the_Dead | **hidden:** no | **global:** 3.2%
 - **trigger:** Wear the Halo Device relic (Ch4) -- requires finding and equipping the specific item
@@ -667,11 +507,96 @@ Found only by deliberate exploration of a non-obvious mechanic.
 - **vector-binding:** `items/weapons.md` Notable Named Weapons (Halo Device)
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
 
-## DLC -- Void Shadows (9 achievements)
+## DLC -- Void Shadows (21 achievements)
 
 All entries require Void Shadows DLC. `spoiler: dlc:Void Shadows`
 
 _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · capture: web_fetch · confidence: high · enemy-tier: 0 | puzzle-tier: 0 | category: mainline | spoiler: dlc:Void Shadows_
+
+_DLC membership re-verified 2026-09-07 against the TrueSteamAchievements per-DLC list (21 names, all present on Steam's global list)._
+
+### Slumdog Overlord
+- **id:** Slumdog_Overlord | **hidden:** no | **global:** 25.7%
+- **trigger:** Decide the fate of the voidship freight line (Ch4)
+- **missable:** yes | **PoNR:** Ch4 window
+- **vector-binding:** `sections/missables.md` Ch4 table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### This Task Is for the Lord Captain Only (HIDDEN)
+- **id:** Lord_Captain_Task_Only | **hidden:** yes | **global:** 4.0%
+- **trigger:** Solo the blood-bath / Magus encounter (Ch4)
+- **missable:** yes | **PoNR:** Ch4
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### At Home Among the Poor
+- **id:** At_Home_Among_the_Poor | **hidden:** no | **global:** 6.1%
+- **trigger:** Mingle with lower-rank people in Shadow Quarters (Ch2; requires specific social dialogue choices)
+- **missable:** yes | **PoNR:** Ch2 (Shadow Quarters closes Ch3+)
+- **vector-binding:** `sections/missables.md` Ch2 table, `nav/architecture.md` z-foot-shadow
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression | **genre:** social
+
+### Mysteries of the Ecclesiarchy (HIDDEN)
+- **id:** Mysteries_of_the_Ecclesiarchy | **hidden:** yes | **global:** 10.9%
+- **trigger:** Discover the Father Hieronymus / Drusian secret (Ch2 specific NPC quest path)
+- **missable:** yes | **PoNR:** Ch2
+- **vector-binding:** `sections/missables.md` Ch2 table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
+
+### You Were Warned
+- **id:** You_Were_Warned | **hidden:** no | **global:** 3.8%
+- **trigger:** Conduct the telepathic ritual in Ch1 with Idira as the assistant (specific companion assignment)
+- **missable:** yes | **PoNR:** Ch1 ritual event
+- **vector-binding:** `sections/missables.md` Ch1 table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none | **genre:** social
+
+### Stay Away From My Psykers!
+- **id:** Stay_Away_From_My_Psykers | **hidden:** no | **global:** 11.8%
+- **trigger:** Save all Astropaths in the telepathic ritual (Ch1)
+- **missable:** yes | **PoNR:** Ch1 ritual
+- **vector-binding:** `sections/missables.md` Ch1 table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
+
+### "There Is Only War..."
+- **id:** There_Is_Only_War | **hidden:** no | **global:** 0.7%
+- **trigger:** Complete the game in Grim Darkness ironman mode
+- **missable:** no | **PoNR:** full run commitment
+- **prereqs:** Grim Darkness from run start; cannot change difficulty once set
+- **vector-binding:** `settings.md` Difficulty
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
+
+### Malum Se Ipsum Devorat
+- **id:** Malum_Se_Ipsum_Devorat | **hidden:** no | **global:** 2.7%
+- **trigger:** Force the Magus (Ch4) to kill himself with his own attack (specific combat manipulation)
+- **missable:** yes | **PoNR:** Ch4 Magus encounter
+- **vector-binding:** `npcs/index.md` Named Bosses (Magus)
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Best Pilots in the Sector
+- **id:** Best_Pilots_in_the_Sector | **hidden:** no | **global:** 10.7%
+- **trigger:** Destroy 4 ships using attack craft (void combat)
+- **missable:** no | **PoNR:** none
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
+
+### Death Waltz
+- **id:** Death_Waltz | **hidden:** no | **global:** 30.8%
+- **trigger:** Kill 3 enemies in one turn via the Death Waltz ability (Bladedancer T1 DLC archetype; requires Void Shadows)
+- **missable:** no | **PoNR:** none (requires Bladedancer archetype, Void Shadows DLC)
+- **notes:** P1 incorrectly attributed to Assassin archetype; P3 confirms Bladedancer-exclusive. `spoiler: dlc:Void Shadows`
+- **vector-binding:** `items/abilities.md` Bladedancer section
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
+
+### Tactician on a Galactic Scale
+- **id:** Tactician_on_a_Galactic_Scale | **hidden:** no | **global:** 16.0%
+- **trigger:** Use every special-zone type in void battles (finite set of zone types)
+- **missable:** no | **PoNR:** none (achievable throughout; see collection note)
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
+
+### Well-Deserved Rest
+- **id:** Well_Deserved_Rest | **hidden:** no | **global:** 2.2%
+- **trigger:** Take a bath with every available companion in the Lord Captain's Quarters
+- **missable:** yes (per-companion -- closes if companion dies) | **PoNR:** Ch3+ (each companion's life window)
+- **vector-binding:** `nav/architecture.md` z-ship-quarters, `sections/missables.md`
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none | **genre:** social
 
 ### Void Shadows
 - **id:** Void_Shadows | **hidden:** no | **global:** 3.4%
@@ -732,11 +657,76 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **missable:** yes | **PoNR:** PoNR-VS-01
 - **vector-binding:** `crew/kibellah.md`
 
-## DLC -- Lex Imperialis (28 achievements)
+## DLC -- Lex Imperialis (20 achievements)
 
 All entries require Lex Imperialis DLC. `spoiler: dlc:Lex Imperialis`
 
 _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · capture: web_fetch · confidence: high · enemy-tier: 0 | puzzle-tier: 0 | category: mainline | spoiler: dlc:Lex Imperialis_
+
+_DLC membership re-verified 2026-09-07 against the TrueSteamAchievements per-DLC list (20 names, all present on Steam's global list)._
+
+### Pack Animal (HIDDEN)
+- **id:** Pack_Animal | **hidden:** yes | **global:** 1.5%
+- **trigger:** Drukhari/Sslyth interaction (Ch3, non-obvious NPC interaction)
+- **missable:** yes | **PoNR:** Ch3
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### A Little Too Crowded
+- **id:** A_Little_Too_Crowded | **hidden:** no | **global:** 1.7%
+- **trigger:** Daring+; have 15+ creatures simultaneously in the Extrapolation area (Ch4)
+- **missable:** yes | **PoNR:** Ch4 Extrapolation area
+- **prereqs:** Daring+
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Friendly Warp-Fire
+- **id:** Friendly_Warp_Fire | **hidden:** no | **global:** 4.6%
+- **trigger:** Daring+; knock out a companion in the Warp Relay area (Ch4-5 specific location)
+- **missable:** yes (specific area) | **PoNR:** Ch4-5
+- **prereqs:** Daring+
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Collateral Damage
+- **id:** Collateral_Damage | **hidden:** no | **global:** 3.0%
+- **trigger:** Daring+; knock out a companion with a tank shot
+- **missable:** yes (tank availability) | **PoNR:** Ch4
+- **prereqs:** Daring+
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Valuable Player
+- **id:** Valuable_Player | **hidden:** no | **global:** 0.8%
+- **trigger:** Daring+; kill 3+ enemies in one fight via Obstruct Vision ability (Ch4-5)
+- **missable:** yes | **PoNR:** Ch4-5
+- **prereqs:** Daring+
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Release the Hound!
+- **id:** Release_the_Hound | **hidden:** no | **global:** 0.5%
+- **trigger:** Daring+; Cyber-Mastiff bites 7 different enemies in one turn (Ch4-5)
+- **missable:** yes | **PoNR:** Ch4-5 (Jae companion alive, questline complete)
+- **prereqs:** Daring+; Cyber-Mastiff from Jae questline
+- **vector-binding:** `items/abilities.md` Support Items
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Thorough Audit
+- **id:** Thorough_Audit | **hidden:** no | **global:** 3.5%
+- **trigger:** Open all containers on the Leethus (Ch3 -- specific ship zone)
+- **missable:** yes | **PoNR:** Ch3
+- **vector-binding:** `nav/architecture.md` Ch3 zone table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Thrill of the Game
+- **id:** Thrill_of_the_Game | **hidden:** no | **global:** 9.0%
+- **trigger:** Find all impostors in the Chapter 2 minigame
+- **missable:** yes | **PoNR:** Ch2 window
+- **vector-binding:** `sections/missables.md` Ch2 table
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** progression
+
+### Pet the Dog
+- **id:** Pet_the_Dog | **hidden:** no | **global:** 4.1%
+- **trigger:** Pet Glaito (the dog on the Voidship) -- non-obvious optional NPC interaction
+- **missable:** no | **PoNR:** none (always accessible Ch2+)
+- **vector-binding:** `items/abilities.md` Support Items
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** none
 
 ### Lex Imperialis
 - **id:** Lex_Imperialis | **hidden:** no | **global:** 8.1%
@@ -763,6 +753,55 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **missable:** yes | **PoNR:** PoNR-LI-01 (frigate fate locked after bridge)
 - **puzzle-tier:** 1
 - **vector-binding:** `nav/li-heartless-engine.md`
+
+### Family Secret (HIDDEN)
+- **id:** Family_Secret | **hidden:** yes | **global:** 6.3%
+- **trigger:** Discover the Watcher's identity at li-leethus-surface via the Family Secret quest
+- **missable:** yes | **PoNR:** li-leethus zone closed
+- **vector-binding:** `nav/li-leethus-surface.md`
+
+### One Step Ahead (HIDDEN)
+- **id:** One_Step_Ahead | **hidden:** yes | **global:** 10.2%
+- **trigger:** Collect all clues before the final briefing at li-thassera-citadel
+- **missable:** yes | **PoNR:** PoNR-LI-02 (final briefing triggered)
+- **puzzle-tier:** 1
+- **vector-binding:** `nav/li-thassera-citadel.md`
+
+### The Defence Rests (HIDDEN)
+- **id:** The_Defence_Rests | **hidden:** yes | **global:** 4.9%
+- **trigger:** Reach the final verdict at li-palace-of-justice (any outcome)
+- **missable:** yes | **PoNR:** PoNR-LI-03
+- **vector-binding:** `nav/li-palace-of-justice.md`
+
+### Of Course I Know What I'm Doing! (HIDDEN)
+- **id:** Of_Course_I_Know | **hidden:** yes | **global:** 3.1%
+- **trigger:** Complete the tank-driving sequence at li-leethus-surface (RT drives the tank; specific dialogue choice)
+- **missable:** yes | **PoNR:** li-leethus-surface quest window
+- **vector-binding:** `nav/li-leethus-surface.md`
+
+### Rogue Trader, One Item
+- **id:** Rogue_Trader_One_Item | **hidden:** no | **global:** 4.3%
+- **trigger:** Buy the single item from Clerk Tertius Quart at li-leethus-surface inventory (requires specific Persuasion/Commerce check to unlock full stock)
+- **missable:** yes | **PoNR:** li-leethus zone closed
+- **vector-binding:** `nav/li-leethus-surface.md`, `factions/adeptus-arbites.md`
+
+### Royal Feast
+- **id:** Royal_Feast | **hidden:** no | **global:** 2.7%
+- **trigger:** Eat all three dishes on Thassera (Ch4, specific exploration + interaction)
+- **missable:** yes | **PoNR:** Ch4 Thassera window
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+### Tank You!
+- **id:** Tank_You | **hidden:** no | **global:** 5.1%
+- **trigger:** Hit 7+ enemies with one tank shot (Ch4)
+- **missable:** yes (tank available in Ch4 zone) | **PoNR:** Ch4
+- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
+
+## DLC -- The Infinite Museion (27 achievements)
+
+Achievements belonging to the third expansion. Membership per the TrueSteamAchievements per-DLC list, cross-checked against Steam's global list (all 27 names present).
+
+_source: TrueSteamAchievements DLC list 2026-09-07 · capture: web_fetch · confidence: high (DLC membership) -- per-entry triggers carry their own source line_
 
 ### Frontier Conqueror
 - **id:** Frontier_Conqueror | **hidden:** no | **global:** 2.6%
@@ -818,7 +857,7 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **trigger:** Earn the respect of both Vedka and Izdrig at the same time
 - **missable:** unknown
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** unknown
-- **_source:** Steam global achievements page, description text, 2026-09-07; Lex Imperialis attribution per community 100%-guide (steamcommunity.com/sharedfiles/filedetails/?id=3637396345), 2026-09-06
+- **_source:** Steam global achievements page, description text, 2026-09-07; The Infinite Museion attribution per TrueSteamAchievements DLC list, 2026-09-07
 
 ### Hero of Zarkov (HIDDEN)
 - **id:** Hero_of_Zarkov | **hidden:** yes | **global:** 1.3%
@@ -833,7 +872,6 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **missable:** unknown
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** unknown
 - **_source:** Steam global achievements page, description text, 2026-09-07
-- **notes:** a community 100%-guide (steamcommunity.com/sharedfiles/filedetails/?id=3637396345) attributes this to a separate DLC named "The Infinite Museion" rather than Lex Imperialis -- placed here per this file's task-defined Museion/Trazyn keyword rule, but the DLC split needs a second look (see report).
 
 ### Blood Feud (HIDDEN)
 - **id:** Blood_Feud | **hidden:** yes | **global:** 0.6%
@@ -875,7 +913,7 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **trigger:** On Daring difficulty or above, kill the Drover without destroying its shoots
 - **missable:** unknown
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** unknown
-- **_source:** Steam global achievements page, description text, 2026-09-07; Lex Imperialis attribution per community 100%-guide (steamcommunity.com/sharedfiles/filedetails/?id=3637396345), 2026-09-06
+- **_source:** Steam global achievements page, description text, 2026-09-07; The Infinite Museion attribution per TrueSteamAchievements DLC list, 2026-09-07
 
 ### Full Force (HIDDEN)
 - **id:** Full_Force | **hidden:** no | **global:** 0.1%
@@ -883,55 +921,6 @@ _source: Steam global achievements page 2026-09-07 (name-set reconciliation) · 
 - **missable:** unknown
 - **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** unknown
 - **_source:** Steam global achievements page, description text, 2026-09-07
-
-### Family Secret (HIDDEN)
-- **id:** Family_Secret | **hidden:** yes | **global:** 6.3%
-- **trigger:** Discover the Watcher's identity at li-leethus-surface via the Family Secret quest
-- **missable:** yes | **PoNR:** li-leethus zone closed
-- **vector-binding:** `nav/li-leethus-surface.md`
-
-### One Step Ahead (HIDDEN)
-- **id:** One_Step_Ahead | **hidden:** yes | **global:** 10.2%
-- **trigger:** Collect all clues before the final briefing at li-thassera-citadel
-- **missable:** yes | **PoNR:** PoNR-LI-02 (final briefing triggered)
-- **puzzle-tier:** 1
-- **vector-binding:** `nav/li-thassera-citadel.md`
-
-### The Defence Rests (HIDDEN)
-- **id:** The_Defence_Rests | **hidden:** yes | **global:** 4.9%
-- **trigger:** Reach the final verdict at li-palace-of-justice (any outcome)
-- **missable:** yes | **PoNR:** PoNR-LI-03
-- **vector-binding:** `nav/li-palace-of-justice.md`
-
-### Of Course I Know What I'm Doing! (HIDDEN)
-- **id:** Of_Course_I_Know | **hidden:** yes | **global:** 3.1%
-- **trigger:** Complete the tank-driving sequence at li-leethus-surface (RT drives the tank; specific dialogue choice)
-- **missable:** yes | **PoNR:** li-leethus-surface quest window
-- **vector-binding:** `nav/li-leethus-surface.md`
-
-### Rogue Trader, One Item
-- **id:** Rogue_Trader_One_Item | **hidden:** no | **global:** 4.3%
-- **trigger:** Buy the single item from Clerk Tertius Quart at li-leethus-surface inventory (requires specific Persuasion/Commerce check to unlock full stock)
-- **missable:** yes | **PoNR:** li-leethus zone closed
-- **vector-binding:** `nav/li-leethus-surface.md`, `factions/adeptus-arbites.md`
-
-### Royal Feast
-- **id:** Royal_Feast | **hidden:** no | **global:** 2.7%
-- **trigger:** Eat all three dishes on Thassera (Ch4, specific exploration + interaction)
-- **missable:** yes | **PoNR:** Ch4 Thassera window
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-### Tank You!
-- **id:** Tank_You | **hidden:** no | **global:** 5.1%
-- **trigger:** Hit 7+ enemies with one tank shot (Ch4)
-- **missable:** yes (tank available in Ch4 zone) | **PoNR:** Ch4
-- **enemy-tier:** 0 | **puzzle-tier:** 0 | **spoiler:** late-game
-
-## Unattributed (base game or DLC -- attribution unverified)
-
-Real Steam achievements confirmed present in the 2026-09-07 stub list, added to close the coverage gap, but for which no cited source yet confirms whether the achievement is base-game or which DLC it belongs to. Do not assume DLC-gating for these until a source is found.
-
-_source: Steam global achievements page 2026-09-07 · capture: web_fetch · confidence: high (name/pct/desc) / low (DLC placement, unresearched)_
 
 ### Ancestral Traces (HIDDEN)
 - **id:** Ancestral_Traces | **hidden:** yes | **global:** 5.2%
@@ -1003,6 +992,8 @@ _source: Steam global achievements page 2026-09-07 · capture: web_fetch · conf
 ## Sources
 
 - 2026-09-07 note: the 2026-05-23 "DLC -- Void Shadows" and "DLC -- Lex Imperialis" sections were reconciled against a fresh Steam name-set pull (Steam global achievements page, fetched 2026-09-07). 19 fabricated/duplicate-name entries were removed from Void Shadows, 16 from Lex Imperialis; 27 real Steam achievements the corpus lacked were added (23 with a cited trigger, 4 marked deferred/unknown); 2 progression achievements were renamed to their exact Steam titles.
+- 2026-09-07 re-sectioning note: after the name-set reconciliation, DLC placement of every entry was re-verified against per-DLC lists; 21 entries moved from base-game sections into their DLC, 17 from Lex Imperialis to The Infinite Museion (a third expansion the file previously did not model), and the interim "Unattributed" section was dissolved.
+- 2026-09-07 DLC membership: TrueSteamAchievements per-DLC lists (Void Shadows, Lex Imperialis, The Infinite Museion), truesteamachievements.com
 - Steam Global Achievements (App ID 2186680): https://steamcommunity.com/stats/2186680/achievements
 - gameplay.tips 100% Achievement Guide: https://gameplay.tips/guides/warhammer-40000-rogue-trader-100-full-achievement-guide.html
 - Fextralife Rogue Trader wiki: https://roguetrader.wiki.fextralife.com/

@@ -120,11 +120,11 @@ _source: P1 research cascade 2026-05-22 · capture: web_fetch · confidence: hig
 | PoNR | DLC | Locks | Zone |
 |---|---|---|---|
 | PoNR-VS-01 | Void Shadows | "Fool Me Once" / "This Is My Throne!" choice (Patriarch); "To Become the Flagship's Blood" (temple ritual); "Death Has Whispered Your Name" (Kibellah quest) | vs-genestealer-lower Ch.4 |
-| (unnamed) temple initiation gate | Void Shadows | "It Itches!" (carry infestation from vs-freight-line); "Ziek Closes" (Ziek's quest) -- both close at Ch2 temple entry, earlier than PoNR-VS-01 | vs-bloodspun-temple Ch.2 |
+| (unnamed) temple initiation gate | Void Shadows | "It Itches!" (carry infestation from vs-freight-line) -- closes at Ch2 temple entry, earlier than PoNR-VS-01 | vs-bloodspun-temple Ch.2 |
 | PoNR-LI-01 | Lex Imperialis | Frigate Heartless fate permanently determined; one-way to engine room | li-heartless-bridge |
 | PoNR-LI-02 | Lex Imperialis | Final briefing at Thassera (locks One Step Ahead achievement window) | li-thassera-citadel |
 | PoNR-LI-03 | Lex Imperialis | All Solomorne companion-quest side content; Palace of Justice is one-way entry | li-silbannacos-system / li-palace-of-justice |
 
 ## DLC Achievement Missability
 
-See `achievements.md` ## DLC -- Void Shadows and ## DLC -- Lex Imperialis. Each entry carries a `missable:` flag and miss condition. Full per-achievement records are the authoritative source; this section was merged there (zipper 2026-05-23).
+See `achievements.md` ## DLC -- Void Shadows, ## DLC -- Lex Imperialis, and ## DLC -- The Infinite Museion. Each entry carries a `missable:` flag and miss condition. Full per-achievement records are the authoritative source; this section was merged there (zipper 2026-05-23).
