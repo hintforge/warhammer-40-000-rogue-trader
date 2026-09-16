@@ -19,12 +19,26 @@ _source: Steam community r/RogueTraderCRPG + Warhammer 40k Rogue Trader Steam Di
 Three-tier progression. One archetype per tier; Tier 2 depends on Tier 1 selection.
 
 **Tier 1 (Levels 1-15):** Warrior, Officer, Soldier, Operative.
-**Tier 2 (Levels 16-35):** Assassin, Arch-Militant, Bounty Hunter, Grand Strategist, Master Tactician, Vanguard (each Tier 1 grants access to ~3 of these); Overseer (Lex Imperialis DLC, T2) requires Officer/Operative or Arbitrator/Sanctioned Psyker/Unsanctioned Psyker origin.
-**Tier 3 / Exemplar (Levels 36-45):** capstone advanced talents derived from the prior two archetypes.
+**Tier 2 (Levels 16-35):** Assassin, Arch-Militant, Bounty Hunter, Grand Strategist, Master Tactician, Vanguard; Overseer (Lex Imperialis DLC, T2) requires Officer/Operative or Arbitrator/Sanctioned Psyker/Unsanctioned Psyker origin.
+**Tier 3 / Exemplar (Levels 36-55):** capstone advanced talents derived from the prior two archetypes. There is no hard level cap; ~55 is the practical ceiling for a complete playthrough (a maximal-completion run tops out around 65).
+
+### Tier 1 -> Tier 2 access (exact)
+
+Your Tier 1 pick decides which advanced archetypes exist for you at level 16. This is an access rule, not a recommendation -- the unlisted ones are unreachable on that path.
+
+| Tier 1 | Unlocks at level 16 |
+|---|---|
+| Warrior | Assassin, Vanguard, Arch-Militant, Executioner (VS) |
+| Officer | Vanguard, Master Tactician, Grand Strategist, Overseer (LI) |
+| Soldier | Bounty Hunter, Master Tactician, Arch-Militant |
+| Operative | Assassin, Bounty Hunter, Grand Strategist, Executioner (VS), Overseer (LI) |
+| Bladedancer (VS) | Assassin, Master Tactician, Arch-Militant, Executioner (VS) |
 
 DLC archetypes: Bladedancer (T1, Void Shadows), Executioner (T2, Void Shadows), Overseer (T2, Lex Imperialis), Arbitrator origin (Lex Imperialis).
 
 _source: P1 research cascade 2026-05-22 · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_
+
+_source: Fextralife Archetypes page (https://roguetrader.wiki.fextralife.com/Archetypes) · capture: web_fetch 2026-09-16 · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_ -- corrects the prior "Levels 36-45" Exemplar range and replaces the approximate "each Tier 1 grants access to ~3 of these" with the exact access table above._
 
 See `items/upgrades.md` for full archetype talent-tree details.
 

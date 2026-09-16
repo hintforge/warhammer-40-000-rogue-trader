@@ -10,6 +10,8 @@ Each character Origin grants a fixed talent set (plus a Feature and stat/skill p
 
 _source: doctor research 2026-06-29 (Fextralife Origins page + individual talent pages + master Talents list, via Firecrawl) · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_
 
+_source (rows marked "New, unassessed"): Fextralife wiki talents table, manually clipped 2026-09-16 · capture: manual-clipping · confidence: medium · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_ -- these rows were added on 2026-09-16 and are NOT covered by the research run named above. Rows tagged _(number unconfirmed)_ reproduce a source value the wiki left blank; confirm in game.
+
 ---
 
 ## All origins (full list)
@@ -19,7 +21,7 @@ Fextralife lists 14 origins. Playable (MC character creation) vs. companion-only
 |---|---|---|
 | Astra Militarum Commander | Suppression Fire!, Fix Bayonets!, Trench Warfare, Field of Fire (+ Unflinching Heroism) | Playable |
 | Commissar | Motivation, For the Emperor!, Let Them Know Fear!, Summary Execution (Duty and Honour! + Show Them Contempt! removed in 1.5) | Playable |
-| Crime Lord | Killing Plan, Escape Plan, Disorienting Plan, Contingency Plan, The Last Plan | Playable (Pandora's origin) |
+| Crime Lord | Killing Plan, Escape Plan, Disorienting Plan, Contingency Plan, The Last Plan | Playable |
 | Ministorum Priest | Litany of Purification, Tenets of Retribution, Flensing Faith, Litany of Hatred, The Emperor Protects (Shield of Faith removed 1.5) | Playable |
 | Navy Officer | Stentorian Voice, Evasive Manoeuvres, Fleet Combat Training, Get Off Me, Get Into Cover! (Do Not Falter!/Scatter/Perfect Timing removed 1.5) | Playable |
 | Noble | You. Do Something., You. Protect Me., You. Go on., You. Kill It., You. You Are Next. | Playable |
@@ -35,7 +37,7 @@ Fextralife lists 14 origins. Playable (MC character creation) vs. companion-only
 
 ---
 
-## Crime Lord  (Pandora's origin)
+## Crime Lord 
 **Feature:** Sure-Fire Plan · **Modifiers:** +5 WS, +5 PER; +5 Awareness, +5 Logic
 
 | Talent | Effect |
@@ -56,6 +58,7 @@ Fextralife lists 14 origins. Playable (MC character creation) vs. companion-only
 | Fix Bayonets! | Two-handed las weapons (yours or allies') gain a Bayonet Strike melee attack (1 AP, same damage as the las weapon, doesn't count toward the per-turn attack limit, once per round). |
 | Trench Warfare | In partial cover, your las weapon rate of fire +20%; in full cover, +40%. |
 | Field of Fire | While under Regimental Tactics, all allies gain +5% rate of fire for every attack they've made since the effect began. |
+| Timely Rescue | While the Astra Militarum commander is under the Regimental Tactics effect, killing an enemy adjacent to any ally grants that ally an additional +10 momentum. |
 
 ## Commissar
 | Talent | Effect |
@@ -64,6 +67,8 @@ Fextralife lists 14 origins. Playable (MC character creation) vs. companion-only
 | For the Emperor! | An ally who survives being hit by At All Costs! and then kills an enemy while under it regains 30% of the wounds lost to At All Costs! as temporary wounds. |
 | Let Them Know Fear! | While you're adjacent to an enemy, allies gain +(1 + FEL bonus/2) resolve. If no creatures within 2 cells, you gain it instead. |
 | Summary Execution | Using At All Costs! while shooting from behind doubles its bonuses. |
+| Iconic Sidearm | Shots with a pistol in their primary hand deal + (2 x Commissar's BS bonus)% more damage, gain +15% critical hit chance, and +(2 x Commissar's FEL bonus)% dodge reduction. |
+| One for the Enemies, Two for the Traitors | The effect of the Iconic Sidearm is now active when a pistol is equipped in either hand. |
 
 ## Ministorum Priest
 | Talent | Effect |
@@ -73,6 +78,8 @@ Fextralife lists 14 origins. Playable (MC character creation) vs. companion-only
 | Flensing Faith | +(WP bonus)% armour pen with chain/power weapons; crits inflict (WP bonus/2) burning. Doubled vs. daemons/psykers/xenos. |
 | Litany of Hatred | On War Hymn / Furious Recital, you and allies within 5 cells deal +(zeal stacks/2) weapon damage for 1 round. Doubled vs. daemons/psykers/xenos. |
 | The Emperor Protects | +(WP bonus) max wounds. (Wiki conflict: the prose paragraph instead says "(WP bonus)% chance to ignore any enemy attack" -- effect-box value quoted; verify in-game.) |
+| Unshakable Faith | In combat, the Ministorum Priest gains + (2 x(STR bonus+ TGH bonus+ AGI bonus + PER bonus)) Willpower. At the start of combat,they gain WP bonus stacks of zeal. They gain +1 stack of zeal fo each enemy they attack with a bolter, a flamer, or a chain, melta, or power weapon for the first time in combat. They gain +2 stacks of zeal for each daemon or xenos killed in combat by any source. |
+| War Hymn | Grants momentum equal to (2 X devotee's zeal stacks). This ability also grants an additional WP bonus momentum for each enemy that is either in a 5-cell radius around the priest or was hit by the priest this turn. ! Can only be used once per combat. |
 
 ## Navy Officer
 | Talent | Effect |
@@ -93,6 +100,7 @@ _Built around a "servant" companion mechanic (You. Serve Me.)._
 | You. Go on. | Your servant gains +2 MP every turn. |
 | You. Kill It. | If your servant kills the target you damaged last turn, you gain +1 AP next turn. |
 | You. You Are Next. | If the servant is under 30% max wounds, you may use You. Serve Me. again to designate a new servant (can't reuse a prior servant this combat). |
+| You. Serve Me. | The noble assigns one ally who Will become their servant until the end of combat. Any time the noble's abilities affect the servant, the servant gains +5 to all characteristics until the start of the noble's next turn. Any time the servant attacks a target that the noble dealt damage to last turn, the servant gains +(10 + noble's FEL bonus)% critical hit chance against that target. Can only be used once per combat. |
 
 ## Navigator
 **Feature:** Lidless Stare (the Warp-eye signature ability) · **Modifiers:** +5 PER, +5 WP; +5 Lore (Warp), +5 Awareness · A story-gated origin available only to a custom companion (not the Rogue Trader). Staff-scaling Warp powers. Its active powers (Lidless Stare, Glimpse of Fate, etc.) are abilities, not talents -- see `abilities.md`.

@@ -8,6 +8,8 @@ Every homeworld grants a fixed set of ~5 talents plus a stat profile and a Featu
 
 _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual talent pages, via Firecrawl) · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_
 
+_source (rows marked "New, unassessed"): Fextralife wiki talents table, manually clipped 2026-09-16 · capture: manual-clipping · confidence: medium · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_ -- these rows were added on 2026-09-16 and are NOT covered by the research run named above. Rows tagged _(number unconfirmed)_ reproduce a source value the wiki left blank; confirm in game.
+
 ---
 
 ## Death World
@@ -20,6 +22,7 @@ _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual tal
 | Tenacity | Once per combat, when stunned/blinded/immobilised, ignore that condition and instead gain +20% temporary wounds. |
 | Trusty Weapons | +10% crit chance with axes, hammers, and las weapons. |
 | Hellish Life | Take (TGH bonus) less damage from flame, toxic, and bleeding effects. |
+| Death World | Once per combat, when the wounds of a death world character drop below 30%, they gain +20% of their maximum wounds as temporary wounds. Death world characters also gain a +20% bonus to dodge and armour while they have at least 1 temporary wound from any a source. |
 
 ---
 
@@ -46,6 +49,7 @@ _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual tal
 | Never Stop Believing | When you would lose all Never Stop Shooting stacks, keep (WP/2) of them instead. Also lets you upgrade WP even if your archetype disallows it. |
 | Hail of Steel | Each round, stacking +1% dodge vs. ranged per shot you made this round. Burst attacks also grant +10 Never Stop Shooting stacks. |
 | Spare Magazine | First reload in combat costs 0 AP. Reloading grants +10 Never Stop Shooting stacks. |
+| Never Stop Shooting | Each time a fortress world character kills an enemy, they gain +10 stacks of never stop shooting. At the start of their turn, there is a (stacks of never stop shooting)% chance that the first attack this round will cost 0 AP and will not count toward the attack limit per round. If this effect triggers, all the stacks are lost. |
 
 ---
 
@@ -59,6 +63,9 @@ _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual tal
 | Fresh Start | +50% dodge vs. the first attack of opportunity each round. |
 | Outnumber | Your melee superiority bonus is increased by +10; enemy melee superiority against you is decreased by -10. (Melee Superiority: a target surrounded by more allies than enemies gives attackers +10 WS per extra ally.) |
 | Helping Hand | Start your turn adjacent to an ally -> +2 MP. End your turn adjacent to allies -> they all gain +2 MP next turn. |
+| Hive World | Hive world characters gain +((1 + FEL bonus) / 2) resolve if there are 3 or more creatures (allies or enemies) in a 3-cell radius. Yet they suffer a -2 penalty to resolve with no creatures around. |
+
+> **Discrepancy flagged, not resolved:** the 2026-09-16 wiki clip's "Weapon Personalisation" (Hive World) reads "+1 damage, +5% armour penetration, +1 rate of fire, and -5 to recoil" -- the existing "Weapon Personalization" row above says "+1% armour pen." Same talent (name match), different armour-pen value (5% vs 1%). Not changed here per the never-edit-an-existing-row rule; flagging for a human to verify against the live game.
 
 ---
 
@@ -72,6 +79,7 @@ _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual tal
 | Stronger Together | All non-xenos allies gain +5 to the same characteristic you chose for Humanity's Finest. |
 | Better to Die for the Emperor | While under 40% wounds: +10 to all characteristics and +2 resolve. |
 | Know no Heresy | +10% crit chance and +10% armour vs. xenos/daemonic; allies get half. But your Lore (Xenos) and Lore (Warp) are always 0. |
+| Humanity's Finest | Imperial world characters can select any characteristic (except for Weapon Skill or Ballistic Skill) and add a +10 bonus. |
 
 ---
 
@@ -85,6 +93,9 @@ _source: doctor research 2026-06-29 (Fextralife Homeworld pages + individual tal
 | Be Smart | Any ability/talent using FEL bonus may use INT bonus instead if higher. Also lets you upgrade INT even if your archetype disallows it. |
 | Contagious Luck | Non-damaging ability on an ally: that ally may reroll any failed attack/dodge/parry/characteristic/skill test (20% success chance, capped at the roll's base chance) for 1 round. On an enemy: 20% chance to fail a successful dodge/parry for 1 round. |
 | Jinx | While the voidborn character is above 50% wounds, ALL hit chances of ALL creatures (including enemies) within 3 cells are +10%. Below 50% wounds, -10%. (Double-edged luck aura -- it buffs enemies too while you're healthy.) |
+| Fortune (Feature) | A voidborn character can reroll any failed attack, dodge, parry, characteristic, or skill test with a 20% chance of success. This chance cannot be greater than the base success chance of the roll. Additionally, any enemy dodge or parry against a voidborn character has a 20% chance to fail after a successful roll. |
+
+_Note: this is the Feature named at the top of this section (previously listed by name only). Its effect text is identical in substance to Kibellah's "Fortune (trait)" row in `talents-origin.md` -- likely the same underlying mechanic, not re-verified against a second source._
 
 ---
 

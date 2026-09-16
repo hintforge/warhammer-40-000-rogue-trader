@@ -39,9 +39,15 @@ _source: P1 research cascade 2026-05-22 · capture: web_fetch · confidence: hig
 | Vanguard | Tank; frontline | Warrior -> Vanguard for physical defense |
 | Overseer | Buff / command | Available to Officer/Operative or psyker Origins; DLC status disputed (see limitations.md) |
 
-### Tier 3 / Exemplar (Levels 36-45)
+### Tier 3 / Exemplar (Levels 36-55)
 
 Universal shared talent pool (no archetype-locked Exemplar talents); plus re-pick slots from T1 and T2 trees. Full talent list and path-specific pick recommendations in [`talents-exemplar.md`](talents-exemplar.md).
+
+No hard level cap exists; ~55 is the practical ceiling for a complete playthrough.
+
+**Note on the Tier 1 tables above:** the "Best Tier 2 pairings" column is build *advice*, not the access rule. The exact list of which Tier 2 archetypes each Tier 1 unlocks is the table in `mechanics.md` (Archetype System -> Tier 1 -> Tier 2 access).
+
+_source: Fextralife Archetypes page (https://roguetrader.wiki.fextralife.com/Archetypes) · capture: web_fetch 2026-09-16 · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: none_ -- corrects the prior "Levels 36-45" range._
 
 ### DLC Archetypes (out of P1 scope)
 
