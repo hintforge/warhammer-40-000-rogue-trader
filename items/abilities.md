@@ -40,10 +40,12 @@ See `mechanics.md` Veil Degradation section for thresholds and mitigation. Quick
 
 ## Archetype-Specific Abilities (non-psyker)
 
+One-line orientation per archetype. Where a per-ability table exists further down, that table is the authority and this row is only a pointer. (Corrected 2026-09-17: the Soldier row previously claimed "Calibrated shots", which is not the name of any Soldier ability -- it conflated the calibrated heavy stubber weapon mod from `builds.md` with an archetype ability.)
+
 | Archetype | Key ability / passive | Notes |
 |---|---|---|
 | Officer | At All Costs (Commissar origin variant) / extra turn generation | Grand Strategist: zone control + extra turns; Master Tactician: momentum-driven AoE |
-| Soldier | Calibrated shots; heavy-weapon specialization | Arch-Militant Tier 2 for sustained DPS |
+| Soldier | Sustained ranged fire + an action-economy loop (Entrench -> Run and Gun) | **Full per-ability detail below**, under "Soldier (T1) -- full ability set". Arch-Militant Tier 2 for sustained DPS |
 | Warrior | Melee mobility; dodge/counter-attack | Assassin Tier 2: mobile DPS; Vanguard Tier 2: tank |
 | Operative | Debuffs; skill coverage | Bounty Hunter Tier 2: sniper-utility |
 
