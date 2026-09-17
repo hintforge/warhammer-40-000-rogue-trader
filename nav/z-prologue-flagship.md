@@ -64,3 +64,19 @@ To `z-ship-bridge` via edge E01 (story-gate, one-way, permanent). Triggers after
 - gamefaqs.gamespot.com Prologue page
 
 _source: P2 research cascade 2026-05-23 · capture: web_fetch · confidence: high · enemy-tier: 0 · puzzle-tier: 0 · category: mainline · spoiler: progression_
+
+## Skill-gated side content (added 2026-09-17)
+
+| Where | Gate | What it opens |
+|---|---|---|
+| Hall, up the stairs after clearing the first room | **Demolition** | An iron door -- unlock it with Demolition rather than looking for a key |
+| Door to the west, when you are ready to proceed | **Tech-Use (HIDDEN check)** | The check is not shown before you attempt it, and it can fail silently -- retry the interaction a couple of times before concluding the door is not openable |
+
+The hidden Tech-Use check is the one worth knowing about: because the game does not display it, a failed attempt looks identical to a door that simply does not open.
+
+**Still missing from this file:** the plaguebearer self-heal mechanic. Searched 2026-09-17 across the
+Fextralife walkthrough, GameFAQs (chris-williams), Neoseeker and Gamer Guides prologue pages -- none
+documents a self-healing plaguebearer in the prologue. Either it belongs to a later zone or it is a
+behaviour no walkthrough records. NOT invented here; still open.
+
+_source: GameFAQs chris-williams Prologue walkthrough + Fextralife "By the Right of Blood" - capture: web_fetch 2026-09-17 - confidence: medium - enemy-tier: 0 - puzzle-tier: 1 - category: mainline - spoiler: progression_
