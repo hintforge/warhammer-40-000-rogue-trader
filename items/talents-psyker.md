@@ -50,7 +50,7 @@ _Psy Rating tiers: Minoris (Psy 1, char lvl 9 / SP lvl 4) -> Majoris (lvl 19 / 1
 | Unnatural Luck | Casting a Divination power on an ally grants unnatural luck: their next critical hit taken becomes a normal hit, then the effect is removed. |
 | Fatebringer | Allies under at least one psychic power gain +(5 + 2x psy rating)% armour penetration. |
 | Predicted Downfall | Each enemy's first dodge attempt in combat suffers -(7x psy rating)%. |
-| Forewarning | CAVEAT: the Fextralife "Forewarning" page documents a Soldier talent (Controlled Shot -1 AP near an ally), NOT the Diviner feature. Treat the Diviner innate as NOT YET CONFIRMED on Fextralife. |
+| Forewarning | RESOLVED 2026-09-16: the name collision is real and the SOLDIER talent is the confirmed one -- Controlled Shot costs -1 AP with an adjacent ally (Fextralife Soldier page + GameFAQs Basic Archetypes agree; now carried in `talents-t1.md` under Soldier). A Diviner feature of this name remains UNCONFIRMED -- no source found for it. |
 
 ## Pyromancy discipline talents
 | Talent | Effect |

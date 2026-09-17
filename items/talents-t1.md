@@ -118,6 +118,7 @@ _stat focus: BS, AGI, TGH (or STR for heavy weapons)_
 | Enough Bullets for Everyone | The Soldier's second attack action in a turn deals +(5 + 2 x AGI bonus)% more damage to enemies that have not suffered damage from the Soldier during this turn. | Unrated | New, unassessed |
 | Fired Up | Whenever the Soldier deals damage, their critical damage is increased by +1% until the end of combat. | Unrated | New, unassessed |
 | Fortress | While the Soldier has full cover against an enemy, the Soldier gains +10% damage against that enemy, and the enemy's attacks deal -20% less damage against the Soldier and their cover if the cover is present at the moment when the shot is fired (even if the cover is destroyed by the shot). | Unrated | New, unassessed |
+| Forewarning | When the Soldier has an ally next to them, Controlled Shot costs -1 AP. Requires Controlled Shot. | Unrated | Confirmed as a SOLDIER talent by two independent sources (Fextralife + GameFAQs, 2026-09-16); not the Diviner feature of the same name |
 | Integrity | While at full wounds, the Soldier has +10 Ballistic Skill and +2 MP. | Unrated | New, unassessed |
 | Muzzle Velocity | The first hit of each burst attacks deals additional damage equal to the weapon's current rate of fire. | Unrated | New, unassessed |
 | On the Double | The next use of Run and Gun, when used after Entrench, grants an additional +AGI bonus movement points. | Unrated | New, unassessed |
