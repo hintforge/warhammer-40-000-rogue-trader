@@ -31,6 +31,15 @@
 !README.md
 !assets/**
 
+# --- Interactive artifacts (self-contained player tools, 2026-09-16) ---
+# Presentation/tooling, NOT corpus the reader loads -- so whitelisted here rather
+# than declared as a vector-extension in the manifest. The authoring template
+# (artifacts/*.template.html) is re-excluded below: it carries build scaffolding,
+# not a tool a player opens.
+!artifacts/*.html
+artifacts/*.template.html
+!artifacts/README.md
+
 # --- Declared vector-extensions (one !<ext>/** per manifest entry) ---
 !puzzles/**
 !npcs/**

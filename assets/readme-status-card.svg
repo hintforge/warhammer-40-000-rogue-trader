@@ -101,9 +101,9 @@
   <text class="mono rval" x="352" y="610">ACTIVE &#8212; reads your saves &amp; resolved party/game state</text>
   <line x1="78" y1="632" x2="1422" y2="632" stroke="var(--rule)" stroke-width="1"/>
   <!-- TOOLS (not yet) -->
-  <circle cx="96" cy="668" r="10" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="96" cy="668" r="10" fill="var(--active)" stroke="#3f5030"/>
   <text class="mono b rlbl" x="130" y="676" fill="var(--ink-soft)">TOOLS</text>
-  <text class="mono rval-mute" x="352" y="676">none yet &#8212; build &amp; party planners planned (deepest-stat candidate)</text>
+  <text class="mono rval-mute" x="352" y="676">build planner built &#8212; rank ladder, 900 talents, save import; party planner next</text>
 
   <!-- fine print: save-reader spoiler caveat -->
   <path d="M90 700 l11 19 h-22 z" fill="none" stroke="var(--primary-lt)" stroke-width="1.5"/>

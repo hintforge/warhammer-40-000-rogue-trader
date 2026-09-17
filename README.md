@@ -2,6 +2,8 @@
 
 ![Rogue Trader companion status — coverage, how current it is, spoiler control, and save reader](assets/readme-status-card.svg)
 
+![Build planner built on this corpus — a character's rank ladder with each talent on the rank it was taken, a confidence badge on every entry, a searchable browser of all 900 talents and abilities, and a characteristics panel showing advances against the game's own focus hints](assets/readme-build-planner.png)
+
 A spoiler-controlled hint companion for **Warhammer 40,000: Rogue Trader**, Owlcat's grimdark CRPG in the Koronus Expanse. Built in the [Hintforge](https://github.com/hintforge/builder) format: a loyal sidekick that answers only from these guide files — never from guesswork — at the spoiler level you set, and that tracks where you are so you can step away for months and pick right back up.
 
 ## Use it
