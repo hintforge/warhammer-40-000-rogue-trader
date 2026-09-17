@@ -49,6 +49,25 @@ See `mechanics.md` Veil Degradation section for thresholds and mitigation. Quick
 
 Full archetype talent trees in [`items/talents-t1.md`](talents-t1.md) (T1), [`items/talents-t2.md`](talents-t2.md) (T2), [`items/talents-exemplar.md`](talents-exemplar.md) (Exemplar), [`items/talents-dlc.md`](talents-dlc.md) (DLC). System overview in [`items/upgrades.md`](upgrades.md).
 
+### Soldier (T1) -- full ability set
+
+Per-ability detail. The prose row for Soldier in the table above is a summary; these are the
+actual abilities the archetype grants.
+
+| Ability | Effect | Type | Notes |
+|---|---|---|---|
+| Run and Gun | The Soldier gains +(2 + AGI bonus / 2) MP. Their next attack costs -1 AP and does not count toward the attack limit per turn. Until the end of the next turn the Soldier becomes winded: -10 Ballistic Skill and cannot use Run and Gun again. | Active | Core mobility ability; Entrench refunds it |
+| Dash | The Soldier dashes in the selected direction, spending all movement points. Does not provoke attacks of opportunity; passes through allies and enemies but not obstacles. | Active | Once per round |
+| Entrench | The Soldier spends all AP and MP and gains +30% cover efficiency. The next Run and Gun refunds all spent AP and MP plus 1 additional AP, and resets the cooldown of every other Soldier ability except Run and Gun. | Active | The Entrench -> Run and Gun loop is the archetype's action-economy engine |
+| Rapid Fire | The Soldier's next burst attacks have their rate of fire doubled but deal -25% damage. All shots follow random trajectories. | Active | Burst-capable weapons only. Bullet Hell removes the damage penalty; Unfaltering Fire is the other paired pick |
+| Revel in Slaughter | Removes the winded effect and grants +10 Ballistic Skill, +(5 + 2 x AGI bonus)% critical damage and +(AGI bonus)% critical hit chance until the end of combat. | Active | Unlocks after 3 kills; the kill counter does NOT reset between rounds. Swift Slaughter lowers the requirement to 2 |
+| Controlled Shot | The Soldier signals they are about to open fire; the Soldier and their allies automatically dodge the Soldier's next attack. | Active | Prerequisite for the Forewarning talent, which makes it cost -1 AP with an adjacent ally |
+| Concentrated Fire | The next ranged area attack deals +((50 + 10 x BS bonus) / number of enemies in the area)% damage and gains +(10 + 2 x BS bonus)% dodge penetration. | Active | Damage bonus shrinks as the area catches more enemies -- best on tight clusters of few targets |
+| Firearm Mastery (Heroic Act) | Extra attacks equal to the weapon's rate of fire (minimum 2), using the weapon's lowest-AP attack, spending no AP. Until the end of the turn the first attack against each new enemy automatically scores a critical hit. Reloads the current weapon immediately. | Ultimate | Heroic Act form |
+| Firearm Mastery (Desperate Measure) | Identical effect to the Heroic Act form: extra attacks equal to rate of fire (minimum 2) at no AP, guaranteed critical hit on the first attack against each new enemy until end of turn, immediate reload. | Ultimate | Desperate Measure form -- same text, different trigger condition |
+
+_source: Fextralife Soldier archetype page, manually clipped 2026-09-16 - capture: manual-clipping - confidence: high - enemy-tier: 0 - puzzle-tier: 0 - category: mainline - spoiler: none_ -- effect text transcribed verbatim; the Notes column cross-references talents already carried in `talents-t1.md`.
+
 ## DLC Archetype Abilities (Void Shadows)
 
 ### Bladedancer (T1 -- Void Shadows)

@@ -9,7 +9,7 @@ Quick lookup for all item categories. Each category file holds detailed entries;
 | File | Category | Status |
 |---|---|---|
 | [`weapons.md`](weapons.md) | Weapons (250+ across 6 melee + 7 ranged families) | research-integrated |
-| [`abilities.md`](abilities.md) | Psyker disciplines (5) + class abilities; Psy Rating gating | research-integrated |
+| [`abilities.md`](abilities.md) | Psyker disciplines (5) + Psy Rating gating + per-ability archetype tables (Soldier full set; Bladedancer/Executioner DLC) | research-integrated |
 | [`upgrades.md`](upgrades.md) | Archetype system overview (Tier 1/2/Exemplar); pointers to talent files | research-integrated |
 | [`talents-t1.md`](talents-t1.md) | T1 talent trees: Warrior, Officer, Soldier, Operative (full per-talent tables) | research-integrated |
 | [`talents-t2.md`](talents-t2.md) | T2 talent trees: Assassin, Arch-Militant, BH, GS, MT, Vanguard, Overseer | research-integrated |
