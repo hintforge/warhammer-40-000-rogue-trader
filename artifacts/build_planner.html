@@ -119,6 +119,8 @@ select:disabled{opacity:.5; cursor:not-allowed}
 }
 .savebanner b{color:var(--ink)}
 .savebanner .miss{color:var(--warn)}
+.savebanner .example{display:block; margin-top:6px}
+.savebanner code{font-size:11.5px; color:var(--ink)}
 .savebanner:empty{display:none}
 
 /* ---- RANK CONTROL: discrete, never a free-drag slider -------------------- */
@@ -18524,6 +18526,11 @@ function renderSaveBanner(){
         "has no entry for: " + esc(nm.join(", ")) + ".</span>");
     }
   }
+  bits.push('<span class="example">If you didn&rsquo;t import this save yourself, it&rsquo;s one player&rsquo;s ' +
+    "example party, so the planner opens ready to use. The companions are the same people in every " +
+    "playthrough; your own character is what will differ most. Pick a character, then change its " +
+    "rank, archetype and picks to match yours &mdash; your changes stay in this browser, and " +
+    "<b>Export</b> saves your plan to a file you can bring back with <b>Import</b>.</span>");
   E["save-banner"].innerHTML = bits.join(" ");
 }
 function renderCharsNote(){

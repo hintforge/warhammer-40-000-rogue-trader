@@ -31,4 +31,4 @@ Rogue Trader's saves are readable, so the companion can recap your saves and res
 
 ## What's inside
 
-A structured Markdown corpus — mechanics (deep stat math), crew/companions, factions, items, puzzles, quests, and all achievements — plus a save-state tracker (`save_watcher.ps1`) that lists, backs up, and resolves your saves. Interactive build and party planners are on the roadmap, not yet built. The companion reads and writes only the files you control.
+A structured Markdown corpus — mechanics (deep stat math), crew/companions, factions, items, puzzles, quests, and all achievements — plus a save-state tracker (`save_watcher.ps1`) that lists, backs up, and resolves your saves. An interactive build planner ships at `artifacts/build_planner.html`: open it in a browser and it starts on one player's example party, so it is useful straight away. The companions are the same people in every playthrough; change the character, rank and picks on the page to match yours, and use Export / Import to keep your plan. The companion reads and writes only the files you control.
