@@ -13,7 +13,7 @@ Prefer these over Fextralife/Neoseeker scraping: no 404s, no rate limits, no pat
 2. `enGB.json` -- authoritative TEXT (display names + descriptions), keyed by loc-GUID.
 - **The gap:** the blueprint->loc-GUID link (which loc-GUID is a given talent's name/description) lives only in `Bundles/blueprints-pack.bbp`, a BINARY-serialized pack (type/string table + positional records; internal codenames diverge from display names, e.g. `DeathCultAssassin_MarkOfViolence_Talent`). Parsing it offline = a full deserializer for Owlcat's proprietary format -- high effort, high risk of emitting WRONG numbers. The community solves this with a RUNTIME dump (UnityModManager + a dump mod calling the game's own serializer; the `Modding/` toolkit ships in the install). That's the only way to auto-generate fully-paired name->description->numeric tables; deferred as a separate build. Until then: catalog (completeness) + text grep (descriptions, which already contain the numbers) is the working method.
 
-Install root: `E:\SteamLibrary\steamapps\common\Warhammer 40,000 Rogue Trader`. (`save_watcher.ps1` reads the PLAYTHROUGH; these read the STATIC data those GUIDs point at. `blueprint_cache.json` is an earlier partial mine -- Areas/Units GUID->name maps.)
+Install root: `<your Steam library>\steamapps\common\Warhammer 40,000 Rogue Trader`. (The save reader reads the PLAYTHROUGH; these read the STATIC data those GUIDs point at. `blueprint_cache.json` is an earlier partial mine -- Areas/Units GUID->name maps.)
 
 ## How to read this file
 - Each entry: topic, URL, block type, what was gleaned, best alternative accessed.
