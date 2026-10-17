@@ -309,9 +309,15 @@ def import_save(path, names, talent_names):
                 unresolved_by_level.setdefault(str(lvl), []).append(
                     {"label": label, "blueprint": bp})
 
+        name = display_name(desc.get("CustomName"), blueprint)
         chars.append({
-            "key": norm(display_name(desc.get("CustomName"), blueprint)),
-            "name": display_name(desc.get("CustomName"), blueprint),
+            # The save's own stable entity id, so two characters named alike (or names
+            # in a non-Latin script, which the slug would empty) never share a key.
+            "key": ent.get("UniqueId") or "e%s" % ent.get("$id", len(chars)),
+            # The old name-based key, kept only so a plan saved by an older planner
+            # still finds its character.
+            "slug": norm(name),
+            "name": name,
             "blueprint": blueprint,
             "is_main_character": is_mc,
             "level": level,

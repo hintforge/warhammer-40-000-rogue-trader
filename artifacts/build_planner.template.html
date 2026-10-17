@@ -395,9 +395,14 @@ try{
   if(se && se.textContent.trim()) SAVE = JSON.parse(se.textContent);
 }catch(e){ SAVE = null; }
 var SAVEC = (SAVE && SAVE.characters) || [];
+/* Characters are keyed by the save's own entity id, so two characters named alike
+   never collide. A plan saved by an older planner holds a name slug instead: it
+   still resolves, but only when exactly one character carries that slug. */
 function saveCharByKey(k){
+  if(!k) return null;
   for(var i=0;i<SAVEC.length;i++) if(SAVEC[i].key === k) return SAVEC[i];
-  return null;
+  var bySlug = SAVEC.filter(function(c){ return c.slug && c.slug === k; });
+  return bySlug.length === 1 ? bySlug[0] : null;
 }
 
 var IDS = ["mast-title","mast-sub","btn-loadsave","btn-sheet","btn-export","btn-import",
@@ -851,6 +856,10 @@ function seedFromSave(){
   return true;
 }
 function applyStateToForm(){
+  if(/^s:/.test(state.who || "")){
+    var sc = saveCharByKey(state.who.replace(/^s:/, ""));
+    state.who = sc ? "s:" + sc.key : "rt";
+  }
   E["f-name"].value = state.name || "";
   E["f-who"].value = state.who || "rt";
   E["f-home"].value = state.home || "";

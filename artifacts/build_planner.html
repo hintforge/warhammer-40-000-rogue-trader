@@ -17603,7 +17603,7 @@ tr.focus td.nm{color:var(--gold-2)}
  "save_name": "Quicksave2",
  "player_character": "Pandora",
  "saved_at": "2026-06-29T20:50:54.497667-04:00",
- "imported_at": "2026-09-16 21:59",
+ "imported_at": "2026-10-17 02:50",
  "characteristics_note": "Characteristic TOTALS are not imported. The save stores every characteristic as base 30 for every character; real values are recomputed at load from homeworld, origin, gear and buff modifiers that are not stored as numbers. Only the advances actually chosen are imported -- each is +5 per the corpus (items/upgrades.md).",
  "homeworld_modifiers": {
   "Death World": "+5 STR/AGI/TGH, -5 FEL/INT",
@@ -17615,7 +17615,8 @@ tr.focus td.nm{color:var(--gold-2)}
  },
  "characters": [
   {
-   "key": "pandora",
+   "key": "4cb0189229b856caaad3cd745d675165",
+   "slug": "pandora",
    "name": "Pandora",
    "blueprint": "StartGame_Pregen_Adept",
    "is_main_character": true,
@@ -17697,7 +17698,8 @@ tr.focus td.nm{color:var(--gold-2)}
    ]
   },
   {
-   "key": "abelard",
+   "key": "28be526b5fe85ba38e84bfe1f909a4d2",
+   "slug": "abelard",
    "name": "Abelard",
    "blueprint": "AbelardCompanion_1lvl",
    "is_main_character": false,
@@ -17770,7 +17772,8 @@ tr.focus td.nm{color:var(--gold-2)}
    "unmatched": []
   },
   {
-   "key": "argenta",
+   "key": "52426a95fa855d7b8096fab6bce9e9fc",
+   "slug": "argenta",
    "name": "Argenta",
    "blueprint": "ArgentaCompanion_2lvl",
    "is_main_character": false,
@@ -17849,7 +17852,8 @@ tr.focus td.nm{color:var(--gold-2)}
    ]
   },
   {
-   "key": "cassia",
+   "key": "f34542b682125cbba5a1170b3b90f639",
+   "slug": "cassia",
    "name": "Cassia",
    "blueprint": "CassiaCompanion_Chapter1_Start",
    "is_main_character": false,
@@ -17921,7 +17925,8 @@ tr.focus td.nm{color:var(--gold-2)}
    "unmatched": []
   },
   {
-   "key": "idira",
+   "key": "594c7ccb43ce566bb1fd02ba143231d1",
+   "slug": "idira",
    "name": "Idira",
    "blueprint": "IdiraCompanion_2lvl",
    "is_main_character": false,
@@ -18005,7 +18010,8 @@ tr.focus td.nm{color:var(--gold-2)}
    "unmatched": []
   },
   {
-   "key": "kibellah",
+   "key": "4972b57666175a50bd99f3d82bff4ccb",
+   "slug": "kibellah",
    "name": "Kibellah",
    "blueprint": "KibellahCompanion",
    "is_main_character": false,
@@ -18072,7 +18078,8 @@ tr.focus td.nm{color:var(--gold-2)}
    ]
   },
   {
-   "key": "sexyboots",
+   "key": "5231f80d647d5cb0a790bb0b0c27577d",
+   "slug": "sexyboots",
    "name": "Sexyboots",
    "blueprint": "NewCompanion_Pregen_Soldier",
    "is_main_character": false,
@@ -18157,7 +18164,7 @@ tr.focus td.nm{color:var(--gold-2)}
    ]
   }
  ],
- "blueprint_source": "cheatdata.json (game blueprint index)"
+ "blueprint_source": "cached blueprint_names.json"
 }</script>
 <script>
 (function(){
@@ -18175,9 +18182,14 @@ try{
   if(se && se.textContent.trim()) SAVE = JSON.parse(se.textContent);
 }catch(e){ SAVE = null; }
 var SAVEC = (SAVE && SAVE.characters) || [];
+/* Characters are keyed by the save's own entity id, so two characters named alike
+   never collide. A plan saved by an older planner holds a name slug instead: it
+   still resolves, but only when exactly one character carries that slug. */
 function saveCharByKey(k){
+  if(!k) return null;
   for(var i=0;i<SAVEC.length;i++) if(SAVEC[i].key === k) return SAVEC[i];
-  return null;
+  var bySlug = SAVEC.filter(function(c){ return c.slug && c.slug === k; });
+  return bySlug.length === 1 ? bySlug[0] : null;
 }
 
 var IDS = ["mast-title","mast-sub","btn-loadsave","btn-sheet","btn-export","btn-import",
@@ -18631,6 +18643,10 @@ function seedFromSave(){
   return true;
 }
 function applyStateToForm(){
+  if(/^s:/.test(state.who || "")){
+    var sc = saveCharByKey(state.who.replace(/^s:/, ""));
+    state.who = sc ? "s:" + sc.key : "rt";
+  }
   E["f-name"].value = state.name || "";
   E["f-who"].value = state.who || "rt";
   E["f-home"].value = state.home || "";

@@ -52,6 +52,7 @@ artifacts/data/*
 extract_tools/*
 !extract_tools/save_import.py
 !extract_tools/build_artifact.py
+!extract_tools/test_save_import.py
 !extract_tools/blueprint_names.json
 
 # --- Declared vector-extensions (one !<ext>/** per manifest entry) ---
