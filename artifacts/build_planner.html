@@ -18530,7 +18530,9 @@ function renderSaveBanner(){
     "example party, so the planner opens ready to use. The companions are the same people in every " +
     "playthrough; your own character is what will differ most. Pick a character, then change its " +
     "rank, archetype and picks to match yours &mdash; your changes stay in this browser, and " +
-    "<b>Export</b> saves your plan to a file you can bring back with <b>Import</b>.</span>");
+    "<b>Export</b> saves your plan to a file you can bring back with <b>Import</b>. To load your own save instead, " +
+    "run <code>python extract_tools/save_import.py</code> then <code>python extract_tools/build_artifact.py</code> " +
+    "from this guide&rsquo;s folder (see <code>artifacts/README.md</code>).</span>");
   E["save-banner"].innerHTML = bits.join(" ");
 }
 function renderCharsNote(){

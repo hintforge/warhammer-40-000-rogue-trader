@@ -39,6 +39,20 @@
 !artifacts/*.html
 artifacts/*.template.html
 !artifacts/README.md
+# Save importer kit (corpus-deploy "tool that reads the player's own save" rule,
+# 2026-10-17): a stranger can run it on their own save, so it ships with exactly
+# the files it needs. The template is re-included because the rebuild needs it.
+# data/save_state.json (one player's import) and the dev-only
+# build_planner_data.py / gap_report.md stay out.
+!artifacts/build_planner.template.html
+!artifacts/data/
+artifacts/data/*
+!artifacts/data/talents.json
+!extract_tools/
+extract_tools/*
+!extract_tools/save_import.py
+!extract_tools/build_artifact.py
+!extract_tools/blueprint_names.json
 
 # --- Declared vector-extensions (one !<ext>/** per manifest entry) ---
 !puzzles/**

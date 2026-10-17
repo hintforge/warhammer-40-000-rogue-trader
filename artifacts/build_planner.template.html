@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dynasty Progression Dossier</title>
+<style>
+/* ---------------------------------------------------------------------------
+   SKIN TOKENS. Tuned to the game's own UI: near-black green panels, brass and
+   gold frames, parchment for reading surfaces. Defined on :root first (never
+   only inside a media block); body always gets an explicit background.
+   --------------------------------------------------------------------------- */
+:root{
+  --bg:#0f1311; --panel:#161b18; --panel-2:#1d231f; --sunk:#101512;
+  --ink:#e6e0cf; --ink-soft:#9a9a86;
+  --line:#3a3a2c; --brass:#8a7134; --gold:#c9a227; --gold-2:#e8c85a;
+  --blood:#a3382b; --green:#7fa650; --parch:#ece3cc; --parch-ink:#2a2518;
+  --ok:#7fa650; --warn:#c9932a;
+  --shadow:0 1px 0 rgba(0,0,0,.6),0 10px 26px rgba(0,0,0,.45);
+  --radius:4px;
+  --font-display:"Trajan Pro","Optima","Palatino Linotype",Palatino,Georgia,serif;
+  --font-ui:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Mono",Consolas,"DejaVu Sans Mono",monospace;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --bg:#d9d3c2; --panel:#efe8d5; --panel-2:#e2dac4; --sunk:#e8e1cd;
+    --ink:#241f14; --ink-soft:#5f5744; --line:#bfb392;
+    --brass:#8a7134; --gold:#7a5e12; --gold-2:#9c7a1c;
+    --blood:#8c2b20; --green:#4a6b2a; --parch:#f6f0df; --parch-ink:#241f14;
+    --ok:#4a6b2a; --warn:#8a5a10;
+    --shadow:0 1px 2px rgba(60,45,20,.18),0 8px 20px rgba(60,45,20,.12);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#d9d3c2; --panel:#efe8d5; --panel-2:#e2dac4; --sunk:#e8e1cd;
+  --ink:#241f14; --ink-soft:#5f5744; --line:#bfb392;
+  --brass:#8a7134; --gold:#7a5e12; --gold-2:#9c7a1c;
+  --blood:#8c2b20; --green:#4a6b2a; --parch:#f6f0df; --parch-ink:#241f14;
+  --ok:#4a6b2a; --warn:#8a5a10;
+  --shadow:0 1px 2px rgba(60,45,20,.18),0 8px 20px rgba(60,45,20,.12);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--font-ui); font-size:15px; line-height:1.5;
+  -webkit-text-size-adjust:100%;
+}
+h1,h2,h3{font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:.04em}
+button,input,select,textarea{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--gold-2); outline-offset:2px}
+
+.wrap{max-width:1280px; margin:0 auto; padding:0 16px 72px}
+
+/* masthead: brass rule + aquila mark, like the game's panel headers --------- */
+.masthead{padding:16px 0 10px; display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap}
+.masthead h1{font-size:clamp(19px,3.4vw,27px); color:var(--gold-2); text-transform:uppercase}
+.masthead .sub{
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink-soft); margin-top:5px;
+}
+.brassrule{
+  height:3px; border:0; margin:0 0 16px;
+  background:linear-gradient(90deg,transparent,var(--brass) 8%,var(--gold) 50%,var(--brass) 92%,transparent);
+  position:relative;
+}
+.brassrule::after{
+  content:""; position:absolute; left:50%; top:-5px; width:13px; height:13px;
+  transform:translateX(-50%) rotate(45deg);
+  background:var(--gold); border:1px solid var(--brass);
+}
+.spacer{flex:1 1 auto}
+.toolbar{display:flex; gap:7px; flex-wrap:wrap}
+
+.btn{
+  background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line); border-top-color:var(--brass);
+  color:var(--ink); padding:6px 11px; border-radius:var(--radius); cursor:pointer;
+  font-size:13.5px;
+}
+.btn:hover{border-color:var(--gold); color:var(--gold-2)}
+.btn.primary{background:linear-gradient(180deg,var(--gold),var(--brass)); color:#15120a; border-color:var(--brass); font-weight:700}
+.btn.sm{padding:2px 8px; font-size:12px}
+
+/* panels: sunken field inside a brass-topped frame ------------------------- */
+.card{
+  background:var(--panel); border:1px solid var(--line);
+  border-top:2px solid var(--brass);
+  border-radius:var(--radius); box-shadow:var(--shadow);
+  padding:13px; margin-bottom:14px;
+}
+.card > h2{
+  font-size:12px; text-transform:uppercase; letter-spacing:.16em;
+  color:var(--gold); font-family:var(--font-mono); font-weight:700;
+  border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:11px;
+}
+.grid{display:grid; grid-template-columns:326px 1fr; gap:16px; align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+label.fld{display:block; margin-bottom:10px}
+label.fld > span{
+  display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:4px; font-family:var(--font-mono);
+}
+select,input[type=text],input[type=number]{
+  width:100%; background:var(--sunk); border:1px solid var(--line);
+  border-radius:var(--radius); padding:6px 8px;
+}
+select:disabled{opacity:.5; cursor:not-allowed}
+.hint{font-size:12px; color:var(--ink-soft); margin-top:6px}
+.hint.warn{color:var(--warn)}
+
+.savebanner{
+  border:1px solid var(--line); border-left:3px solid var(--gold);
+  background:var(--panel); border-radius:var(--radius); padding:8px 12px;
+  margin-bottom:14px; font-size:12.5px; color:var(--ink-soft);
+}
+.savebanner b{color:var(--ink)}
+.savebanner .miss{color:var(--warn)}
+.savebanner .example{display:block; margin-top:6px}
+.savebanner code{font-size:11.5px; color:var(--ink)}
+.savebanner:empty{display:none}
+
+/* ---- RANK CONTROL: discrete, never a free-drag slider -------------------- */
+.rankbox{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+.bigstep{
+  width:34px; height:34px; font-size:19px; line-height:1; padding:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.rankface{
+  flex:1; text-align:center; background:var(--sunk);
+  border:1px solid var(--line); border-radius:var(--radius); padding:4px 0;
+}
+.rankface .n{font-family:var(--font-display); font-size:30px; color:var(--gold-2); line-height:1.05}
+.rankface .lbl{font-family:var(--font-mono); font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-soft)}
+.jumps{display:flex; gap:5px; flex-wrap:wrap}
+.jumps .btn{flex:1 1 auto; text-align:center; font-family:var(--font-mono); font-size:11px; letter-spacing:.05em}
+.jumps .btn.on{border-color:var(--gold); color:var(--gold-2); background:var(--panel-2)}
+
+/* ---- RANK LADDER: one row per level, the way the game hands them out ----- */
+.ladderwrap{max-height:620px; overflow:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--sunk)}
+.tierband{
+  display:flex; align-items:baseline; gap:9px; flex-wrap:wrap;
+  padding:7px 11px; background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border-top:1px solid var(--brass); border-bottom:1px solid var(--line);
+  position:sticky; top:0; z-index:2;
+}
+.tierband h3{font-size:13.5px; color:var(--gold-2); text-transform:uppercase; letter-spacing:.09em}
+.tierband .rng{font-family:var(--font-mono); font-size:10px; color:var(--ink-soft); letter-spacing:.1em}
+.tierband select{width:auto; max-width:210px; margin-left:auto; font-size:13px; padding:3px 7px}
+.tierband.locked{opacity:.5}
+
+.rank{
+  display:flex; align-items:flex-start; gap:10px; padding:5px 11px;
+  border-bottom:1px solid rgba(128,128,110,.16); min-height:32px;
+}
+.rank:hover{background:var(--panel)}
+.rank.cur{background:var(--panel-2); box-shadow:inset 3px 0 0 var(--gold)}
+.rank.future{opacity:.42}
+.rank .lv{
+  font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);
+  min-width:3.2ch; text-align:right; padding-top:3px; flex:none;
+}
+.rank.cur .lv{color:var(--gold-2); font-weight:700}
+.rank .slot{flex:1; min-width:0}
+.rank .none{color:var(--ink-soft); opacity:.6; font-size:12.5px; font-style:italic}
+.pick{
+  display:flex; gap:8px; align-items:flex-start;
+  background:var(--panel); border:1px solid var(--line);
+  border-left:2px solid var(--gold); border-radius:var(--radius);
+  padding:5px 8px; margin:1px 0;
+}
+.pick .nm{font-weight:600; font-size:13.5px}
+.pick .ef{font-size:12px; color:var(--ink-soft); margin-top:2px}
+.pick .grow{flex:1; min-width:0}
+.rank .addhere{visibility:hidden}
+.rank:hover .addhere,.rank.cur .addhere{visibility:visible}
+
+.conf{
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.08em; text-transform:uppercase;
+  padding:1px 5px; border-radius:9px; border:1px solid currentColor; white-space:nowrap; flex:none;
+}
+.conf.high{color:var(--ok)} .conf.medium{color:var(--warn)} .conf.low{color:var(--blood)}
+.conf.unresolved{color:var(--void)}
+/* an unresolved pick is REAL but unnamed -- marked as incomplete SOURCE data,
+   in words, so it does not read as the tool having failed to load */
+.grow.unresolved .nm{color:var(--void); border-bottom:1px dashed var(--void); display:inline-block}
+.pick .sub{
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-soft); margin-bottom:2px;
+}
+.sheetpick{background:rgba(0,0,0,.04); border-left-color:var(--brass); margin:3px 0}
+.derived-caveat{font-size:11px; color:var(--warn); font-style:italic}
+.savebanner.integrity{border-left-color:var(--blood); color:var(--ink)}
+.directional{
+  border-left:2px solid var(--blood); padding-left:7px; margin-top:3px;
+  font-size:11.5px; color:var(--ink-soft);
+}
+
+/* ---- characteristics, styled like the sheet ------------------------------ */
+table.chars{width:100%; border-collapse:collapse; font-size:13px}
+table.chars th,table.chars td{text-align:left; padding:4px 6px; border-bottom:1px solid var(--line)}
+table.chars th{
+  font-family:var(--font-mono); font-size:9.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-soft); font-weight:600;
+}
+table.chars td.split{font-family:var(--font-mono); color:var(--gold-2); white-space:nowrap; font-size:12px}
+table.chars td.tot{font-family:var(--font-mono); font-weight:700; text-align:right}
+tr.focus td.nm{color:var(--gold-2)}
+.thumb{color:var(--gold); font-size:11px; margin-left:4px}
+.stepper{display:flex; gap:2px; align-items:center}
+.stepper button{
+  width:21px; height:21px; line-height:1; padding:0; border-radius:3px;
+  border:1px solid var(--line); background:var(--panel-2); cursor:pointer; font-size:13px;
+}
+.stepper button:hover{border-color:var(--gold)}
+.stepper span{font-family:var(--font-mono); min-width:2ch; text-align:center; font-size:12px}
+
+/* ---- browser ------------------------------------------------------------- */
+.filters{display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px}
+.filters input[type=text]{flex:2 1 210px; width:auto}
+.filters select{flex:1 1 145px; width:auto}
+.tlist{max-height:430px; overflow:auto; border:1px solid var(--line); border-radius:var(--radius); background:var(--sunk)}
+.trow{display:flex; gap:8px; align-items:flex-start; padding:7px 10px; border-bottom:1px solid rgba(128,128,110,.16)}
+.trow:hover{background:var(--panel)}
+.trow .grow{flex:1; min-width:0}
+.trow .nm{font-weight:600; font-size:13.5px}
+.trow .ef{font-size:12px; color:var(--ink-soft); margin-top:2px}
+.tags{display:flex; gap:4px; flex-wrap:wrap; margin-top:4px}
+.tag{
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.05em;
+  background:var(--panel-2); border:1px solid var(--line); border-radius:9px;
+  padding:1px 6px; color:var(--ink-soft);
+}
+.count{font-family:var(--font-mono); font-size:10.5px; color:var(--ink-soft); margin-bottom:6px}
+/* section headers mirroring the game's grouped talent screen */
+.secthead{
+  display:flex; align-items:baseline; gap:8px;
+  font-family:var(--font-mono); font-size:10px; letter-spacing:.18em;
+  color:var(--gold); background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border-top:1px solid var(--brass); border-bottom:1px solid var(--line);
+  padding:5px 10px; position:sticky; top:0; z-index:1;
+}
+.secthead .n{margin-left:auto; color:var(--ink-soft); letter-spacing:.06em}
+
+/* ---- summary sheet, on parchment ---------------------------------------- */
+.sheet{display:none}
+.sheet.show{display:block}
+.sheet .paper{
+  background:var(--parch); color:var(--parch-ink);
+  border:1px solid var(--brass); border-radius:var(--radius); padding:15px;
+}
+.sheetgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(225px,1fr)); gap:14px}
+.kv{display:flex; justify-content:space-between; gap:10px; padding:2px 0; border-bottom:1px dotted rgba(0,0,0,.22)}
+.kv span{font-family:var(--font-mono); font-size:12px; text-align:right; opacity:.78}
+.sheet .paper h3{font-size:13px; margin:10px 0 4px; color:#6b4f12; text-transform:uppercase; letter-spacing:.09em}
+
+.foot{margin-top:16px; padding-top:11px; border-top:1px solid var(--line); font-size:11.5px; color:var(--ink-soft)}
+.foot code{font-family:var(--font-mono); font-size:11px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important}
+}
+@media print{ .noprint{display:none !important} body{background:#fff;color:#000} .card{box-shadow:none;break-inside:avoid} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <h1 id="mast-title">Dynasty Progression Dossier</h1>
+      <div class="sub" id="mast-sub">Rogue Trader &middot; build planner</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="toolbar noprint">
+      <button class="btn primary" id="btn-loadsave" type="button">Load from save</button>
+      <button class="btn" id="btn-sheet" type="button">Summary</button>
+      <button class="btn" id="btn-export" type="button">Export</button>
+      <button class="btn" id="btn-import" type="button">Import</button>
+      <button class="btn" id="btn-reset" type="button">Reset</button>
+      <button class="btn" id="btn-theme" type="button" aria-label="Toggle colour theme">Theme: auto</button>
+    </div>
+  </header>
+  <hr class="brassrule">
+
+  <div class="savebanner" id="save-banner"></div>
+
+  <div class="grid">
+    <div>
+      <section class="card">
+        <h2>Subject</h2>
+        <label class="fld"><span>Character</span>
+          <select id="f-who"><option value="rt">Blank build</option></select>
+        </label>
+        <label class="fld"><span>Name</span>
+          <input type="text" id="f-name" placeholder="e.g. Pandora" autocomplete="off">
+        </label>
+        <label class="fld"><span>Homeworld</span><select id="f-home"></select></label>
+        <label class="fld"><span>Origin</span><select id="f-origin"></select></label>
+      </section>
+
+      <section class="card">
+        <h2>Rank</h2>
+        <div class="rankbox">
+          <button class="btn bigstep" id="lvl-dec" type="button" aria-label="Previous rank">&minus;</button>
+          <div class="rankface">
+            <div class="n" id="lvl-num">1</div>
+            <div class="lbl" id="lvl-tier">Tier 1 &middot; Basic</div>
+          </div>
+          <button class="btn bigstep" id="lvl-inc" type="button" aria-label="Next rank">+</button>
+        </div>
+        <div class="jumps noprint">
+          <button class="btn" id="jump-t1" type="button">T1 &middot; 1</button>
+          <button class="btn" id="jump-t2" type="button">T2 &middot; 16</button>
+          <button class="btn" id="jump-t3" type="button">EX &middot; 36</button>
+          <button class="btn" id="jump-max" type="button">55</button>
+        </div>
+        <div class="hint" id="lvl-note"></div>
+      </section>
+
+      <section class="card">
+        <h2>Characteristics</h2>
+        <table class="chars">
+          <thead><tr><th>Stat</th><th>T1/T2/EX</th><th class="noprint">Advances</th><th style="text-align:right">Total</th></tr></thead>
+          <tbody id="chars-body"></tbody>
+        </table>
+        <div class="hint" id="chars-focus"></div>
+        <div class="hint warn" id="chars-note"></div>
+      </section>
+    </div>
+
+    <div>
+      <section class="card">
+        <h2>Career path</h2>
+        <div class="ladderwrap" id="ladder"></div>
+        <div class="hint">Each row is one rank, the way the game hands them out. Pick a rank, then add a talent from the browser below &mdash; it lands on that rank.</div>
+      </section>
+
+      <section class="card noprint">
+        <h2>Talents &amp; abilities</h2>
+        <div class="filters">
+          <input type="text" id="f-search" placeholder="Search name or effect&hellip;" autocomplete="off" aria-label="Search talents">
+          <select id="f-group" aria-label="Filter by archetype or source"></select>
+          <select id="f-cat" aria-label="Filter by category"></select>
+        </div>
+        <div class="count" id="t-count"></div>
+        <div class="tlist" id="t-list"></div>
+      </section>
+
+      <section class="card sheet" id="sheet">
+        <h2>Summary sheet</h2>
+        <div class="paper">
+          <div class="sheetgrid">
+            <div>
+              <div class="kv"><b>Name</b><span id="s-name">&mdash;</span></div>
+              <div class="kv"><b>Rank</b><span id="s-level">1</span></div>
+              <div class="kv"><b>Homeworld</b><span id="s-home">&mdash;</span></div>
+              <div class="kv"><b>Origin</b><span id="s-origin">&mdash;</span></div>
+              <div class="kv"><b>Path</b><span id="s-path">&mdash;</span></div>
+              <div class="kv"><b>Talents</b><span id="s-count">0</span></div>
+            </div>
+            <div id="s-chars"></div>
+          </div>
+          <div id="s-talents" style="margin-top:12px"></div>
+        </div>
+      </section>
+
+      <div class="foot">
+        <div id="prov"></div>
+        <div id="selfcheck" style="margin-top:5px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="hf-data" type="application/json">__HF_DATA__</script>
+<script id="hf-save" type="application/json">__HF_SAVE__</script>
+<script>
+(function(){
+"use strict";
+
+var DATA = JSON.parse(document.getElementById("hf-data").textContent);
+var TAL = DATA.talents;
+var ARCH = DATA.archetypes || {};
+var FOCUS = DATA.stat_focus || {};
+var KEY = "hf-rt-build-planner-v2";
+
+var SAVE = null;
+try{
+  var se = document.getElementById("hf-save");
+  if(se && se.textContent.trim()) SAVE = JSON.parse(se.textContent);
+}catch(e){ SAVE = null; }
+var SAVEC = (SAVE && SAVE.characters) || [];
+function saveCharByKey(k){
+  for(var i=0;i<SAVEC.length;i++) if(SAVEC[i].key === k) return SAVEC[i];
+  return null;
+}
+
+var IDS = ["mast-title","mast-sub","btn-loadsave","btn-sheet","btn-export","btn-import",
+  "btn-reset","btn-theme","save-banner","f-who","f-name","f-home","f-origin",
+  "lvl-dec","lvl-inc","lvl-num","lvl-tier","lvl-note","jump-t1","jump-t2","jump-t3",
+  "jump-max","chars-body","chars-focus","chars-note","ladder","f-search","f-group",
+  "f-cat","t-count","t-list","sheet","s-name","s-level","s-home","s-origin","s-path",
+  "s-count","s-chars","s-talents","prov","selfcheck"];
+var E = {}, missing = [];
+IDS.forEach(function(id){
+  var el = document.getElementById(id);
+  if(!el) missing.push(id); else E[id] = el;
+});
+
+var STATS = ["Weapon Skill","Ballistic Skill","Strength","Toughness","Agility",
+             "Intelligence","Perception","Willpower","Fellowship"];
+var MAXLVL = 55;
+var TIERS = [{n:1,from:1,to:15},{n:2,from:16,to:35},{n:3,from:36,to:55}];
+
+/* State. Picks are keyed BY RANK, mirroring how the game assigns them, rather
+   than pooled into tier buckets. */
+var state = {
+  name:"", who:"rt", home:"", origin:"", level:1,
+  arch1:"", arch2:"",
+  byLevel:{},          /* "4": ["Instant Exposure"] */
+  chars:{}             /* stat -> {1:n,2:n,3:n} */
+};
+STATS.forEach(function(s){ state.chars[s] = {1:0,2:0,3:0}; });
+
+function esc(s){
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+  });
+}
+function tierOf(level){ return level >= 36 ? 3 : (level >= 16 ? 2 : 1); }
+function byCat(cat){
+  var gc = DATA.group_categories || {};
+  return Object.keys(gc).filter(function(g){ return gc[g] === cat; }).sort();
+}
+var NAME2I = {};
+TAL.forEach(function(t,i){ NAME2I[t.name] = i; });
+
+/* Unresolved picks are part of the build and are counted and listed with the
+   rest. Omitting them would make the summary quietly under-report what the
+   character actually has -- the same silent-omission class the ladder fix
+   closed. */
+function allPicks(){
+  var out = [];
+  Object.keys(state.byLevel).forEach(function(l){
+    state.byLevel[l].forEach(function(n){ out.push({level:+l, name:n}); });
+  });
+  var u = state.unresolvedByLevel || {};
+  Object.keys(u).forEach(function(l){
+    u[l].forEach(function(o){ out.push({level:+l, name:o.label, unresolved:true}); });
+  });
+  return out.sort(function(a,b){ return a.level - b.level; });
+}
+function picksInTier(t){
+  return allPicks().filter(function(p){ return tierOf(p.level) === t; });
+}
+
+/* ---------- selects ------------------------------------------------------ */
+function opt(sel, val, label, selected){
+  var o = document.createElement("option");
+  o.value = val; o.textContent = label; if(selected) o.selected = true;
+  sel.appendChild(o);
+}
+(function initSelects(){
+  opt(E["f-home"], "", "-- choose --");
+  byCat("homeworld").filter(function(h){ return h !== "Homeworld"; })
+    .forEach(function(h){ opt(E["f-home"], h, h); });
+  opt(E["f-origin"], "", "-- choose --");
+  byCat("origin").forEach(function(o){ opt(E["f-origin"], o, o); });
+
+  if(SAVEC.length){
+    E["f-who"].innerHTML = "";
+    SAVEC.forEach(function(c){
+      opt(E["f-who"], "s:"+c.key, c.name + (c.is_main_character ? " (Rogue Trader)" : ""));
+    });
+    opt(E["f-who"], "rt", "Blank build");
+  }
+
+  opt(E["f-group"], "", "All sources (" + TAL.length + ")");
+  Object.keys(DATA.groups).forEach(function(g){
+    opt(E["f-group"], g, g + " (" + DATA.groups[g] + ")");
+  });
+  var cats = {};
+  TAL.forEach(function(t){ t.categories.forEach(function(c){ cats[c] = (cats[c]||0)+1; }); });
+  opt(E["f-cat"], "", "All categories");
+  Object.keys(cats).sort().forEach(function(c){
+    opt(E["f-cat"], c, c.replace(/_/g," ") + " (" + cats[c] + ")");
+  });
+})();
+
+/* ---------- rendering ---------------------------------------------------- */
+/* ---------------------------------------------------------------------------
+   THE RENDER CHOKE POINT. Every surface that shows a talent goes through
+   talentCard(); nothing reads .name/.effect directly. The confidence envelope
+   is attached HERE, so a new surface cannot be added that silently drops it.
+   (Measured 2026-09-17: three separate code paths rendered talents and the
+   summary sheet was already missing the caveat -- exactly this failure.)
+   --------------------------------------------------------------------------- */
+function confBadge(c){ return '<span class="conf ' + esc(c) + '">' + esc(c) + '</span>'; }
+function directionalNote(c){
+  if(c !== "low") return "";
+  return '<div class="directional">Directional, not exact &mdash; the source left a literal ' +
+         '<code>XX</code> where the number belongs. Confirm in game.</div>';
+}
+
+/* A talent name present in a build but absent from the talent set is UNRESOLVED,
+   which is a different thing from removed. The save carries internal blueprint
+   codenames the corpus has no display name for; they are real picks and must
+   render as such, not vanish and not masquerade as ordinary talents. */
+function lookupTalent(name){
+  var i = NAME2I[name];
+  if(i === undefined) return {name:name, effect:null, confidence:"unresolved", unresolved:true, archetypes:[], source:"save blueprint codename"};
+  return TAL[i];
+}
+
+/* opts: {compact, showTags, action, sub} */
+function talentCard(name, opts){
+  opts = opts || {};
+  var t = lookupTalent(name);
+  var eff = t.unresolved
+    ? "Present in your save, but this build has no display name or effect text for it. " +
+      "It is a real pick -- the guide corpus is missing the entry."
+    : (t.effect || "(no effect text recorded)");
+  var cls = "grow" + (t.unresolved ? " unresolved" : "");
+  var html = '<div class="' + cls + '">' +
+    (opts.sub ? '<div class="sub">' + esc(opts.sub) + "</div>" : "") +
+    '<div class="nm">' + esc(t.name) + "</div>" +
+    '<div class="ef">' + esc(eff) + "</div>" +
+    directionalNote(t.confidence);
+  if(opts.showTags && !t.unresolved){
+    html += '<div class="tags">' +
+      t.archetypes.map(function(a){ return '<span class="tag">' + esc(a) + "</span>"; }).join("") +
+      '<span class="tag">' + esc(t.source) + "</span></div>";
+  }
+  html += "</div>" + confBadge(t.confidence) + (opts.action || "");
+  return html;
+}
+
+/* Derived values inherit the weakest confidence of their inputs. A gate or a
+   marker computed from low-confidence data must not render as authoritative --
+   the per-row check passes clean while the wall above it lies. */
+function derivedConfidence(inputs){
+  var rank = {unresolved:0, low:1, medium:2, high:3}, worst = "high";
+  inputs.forEach(function(c){
+    if(c && rank[c] !== undefined && rank[c] < rank[worst]) worst = c;
+  });
+  return worst;
+}
+function derivedCaveat(conf, what){
+  if(conf === "high") return "";
+  return ' <span class="derived-caveat">(' + esc(what) + " rests on " + esc(conf) +
+         "-confidence data &mdash; directional)</span>";
+}
+
+function archSelectHTML(tier){
+  if(tier === 1){
+    var t1 = Object.keys(ARCH).filter(function(a){ return ARCH[a].tier === 1; }).sort();
+    return '<select id="sel-a1" aria-label="Tier 1 archetype">' +
+      '<option value="">-- Tier 1 archetype --</option>' +
+      t1.map(function(a){
+        return '<option value="' + esc(a) + '"' + (state.arch1 === a ? " selected" : "") + '>' +
+          esc(a) + (ARCH[a].dlc ? "  [" + esc(ARCH[a].dlc) + "]" : "") + "</option>";
+      }).join("") + "</select>";
+  }
+  if(tier === 2){
+    if(!state.arch1) return '<select id="sel-a2" disabled aria-label="Tier 2 archetype"><option>-- pick Tier 1 first --</option></select>';
+    var un = (ARCH[state.arch1] && ARCH[state.arch1].unlocks) || [];
+    /* The gate is a DERIVED value. If the access matrix it rests on is not
+       high-confidence, the restriction must say so -- a wall that lies with
+       full authority is the failure the per-row confidence check cannot see. */
+    var gateConf = derivedConfidence([(ARCH[state.arch1] || {}).confidence || DATA.archetype_confidence || "high"]);
+    return '<select id="sel-a2" aria-label="Tier 2 archetype">' +
+      '<option value="">-- Tier 2 archetype --</option>' +
+      un.map(function(a){
+        return '<option value="' + esc(a) + '"' + (state.arch2 === a ? " selected" : "") + '>' +
+          esc(a) + (ARCH[a] && ARCH[a].dlc ? "  [" + esc(ARCH[a].dlc) + "]" : "") + "</option>";
+      }).join("") + "</select>" +
+      derivedCaveat(gateConf, "this restriction");
+  }
+  return '<span class="rng">' +
+    (state.arch1 && state.arch2 ? esc(state.arch1) + " + " + esc(state.arch2) : "both prior archetypes") +
+    "</span>";
+}
+
+function renderLadder(){
+  var html = "", cur = state.level;
+  TIERS.forEach(function(T){
+    var open = cur >= T.from;
+    var label = T.n === 1 ? "Tier 1 &mdash; Basic" : (T.n === 2 ? "Tier 2 &mdash; Advanced" : "Exemplar");
+    /* Each tier is its own section so its sticky band is bounded by that
+       section -- three sticky siblings in one container overlap instead. */
+    html += '<section class="tiersec">';
+    html += '<div class="tierband' + (open ? "" : " locked") + '">' +
+      "<h3>" + label + "</h3>" +
+      '<span class="rng">Ranks ' + T.from + "&ndash;" + T.to + (open ? "" : " &middot; locked") + "</span>" +
+      archSelectHTML(T.n) + "</div>";
+    for(var L = T.from; L <= T.to; L++){
+      var picks = state.byLevel[L] || [];
+      var unres = (state.unresolvedByLevel && state.unresolvedByLevel[L]) || [];
+      var cls = "rank" + (L === cur ? " cur" : "") + (L > cur ? " future" : "");
+      html += '<div class="rank ' + cls.replace("rank ","") + '" data-lv="' + L + '">' +
+        '<div class="lv">' + L + "</div><div class=\"slot\">";
+      unres.forEach(function(u){
+        html += '<div class="pick">' + talentCard(u.label, {
+          sub: "unresolved · " + u.blueprint
+        }) + "</div>";
+      });
+      if(picks.length){
+        html += picks.map(function(nm, i){
+          return '<div class="pick">' + talentCard(nm, {
+            action: '<button class="btn sm noprint" type="button" data-rm="' + L + ":" + i + '">&times;</button>'
+          }) + "</div>";
+        }).join("");
+      }else if(!unres.length){
+        html += '<span class="none">&mdash;</span>';
+      }
+      html += "</div></div>";
+    }
+    html += "</section>";
+  });
+  E["ladder"].innerHTML = html;
+}
+
+function renderLevel(){
+  E["lvl-num"].textContent = state.level;
+  var T = DATA.progression.tiers[tierOf(state.level) - 1];
+  E["lvl-tier"].innerHTML = T.name.replace(/\s*\(.*\)/, "");
+  E["lvl-note"].textContent = T.note;
+  [["jump-t1",1],["jump-t2",2],["jump-t3",3]].forEach(function(pair){
+    E[pair[0]].className = "btn" + (tierOf(state.level) === pair[1] ? " on" : "");
+  });
+  E["lvl-dec"].disabled = state.level <= 1;
+  E["lvl-inc"].disabled = state.level >= MAXLVL;
+}
+
+function focusStats(){
+  var out = {};
+  [state.arch1, state.arch2].forEach(function(a){
+    if(a && FOCUS[a]) FOCUS[a].stats.forEach(function(s){ out[s] = 1; });
+  });
+  return out;
+}
+
+function renderChars(){
+  var tb = E["chars-body"], cur = tierOf(state.level), f = focusStats();
+  tb.innerHTML = "";
+  STATS.forEach(function(s){
+    var c = state.chars[s], total = (c[1] + c[2] + c[3]) * 5;
+    var tr = document.createElement("tr");
+    if(f[s]) tr.className = "focus";
+    tr.innerHTML =
+      '<td class="nm">' + esc(s) + (f[s] ? '<span class="thumb" title="Recommended for this archetype">&#9650;</span>' : "") + "</td>" +
+      '<td class="split">' + (c[1]*5) + "/" + (c[2]*5) + "/" + (c[3]*5) + "</td>" +
+      '<td class="noprint"><div class="stepper">' +
+        '<button type="button" data-st="' + esc(s) + ':-1" aria-label="Fewer ' + esc(s) + ' advances">&minus;</button>' +
+        "<span>" + c[cur] + "</span>" +
+        '<button type="button" data-st="' + esc(s) + ':1" aria-label="More ' + esc(s) + ' advances">+</button>' +
+      "</div></td>" +
+      '<td class="tot">+' + total + "</td>";
+    tb.appendChild(tr);
+  });
+  var names = Object.keys(f);
+  E["chars-focus"].innerHTML = names.length
+    ? "&#9650; marks this path's focus characteristics (" + esc(names.join(", ")) +
+      ") &mdash; the corpus equivalent of the game's thumbs-up hint at level-up."
+    : "";
+}
+
+function matches(t, q, g, c){
+  if(g && t.archetypes.indexOf(g) < 0) return false;
+  if(c && t.categories.indexOf(c) < 0) return false;
+  if(!q) return true;
+  return (t.name + " " + t.effect).toLowerCase().indexOf(q) >= 0;
+}
+/* The game's "Available Common Talents" screen groups picks under headers for
+   where they come from -- the player's HOMEWORLD, their ORIGIN, then OTHER
+   (observed in the reader transcripts under
+   experiments/rogue_trader_playtest/sessions/). Matching that grouping is what
+   lets a row here be found on the screen in front of you, so the list is
+   bucketed the same way and in the same order. */
+function bucketOf(t){
+  if(state.home && t.archetypes.indexOf(state.home) >= 0) return "home";
+  if(state.origin && t.archetypes.indexOf(state.origin) >= 0) return "origin";
+  if(state.arch1 && t.archetypes.indexOf(state.arch1) >= 0) return "a1";
+  if(state.arch2 && t.archetypes.indexOf(state.arch2) >= 0) return "a2";
+  return "other";
+}
+function talentRow(t){
+  return '<div class="trow">' + talentCard(t.name, {
+    showTags: true,
+    action: '<button class="btn sm" type="button" data-add="' + esc(t.name) + '">Add</button>'
+  }) + "</div>";
+}
+function renderList(){
+  var q = E["f-search"].value.trim().toLowerCase();
+  var g = E["f-group"].value, c = E["f-cat"].value;
+  var hits = TAL.filter(function(t){ return matches(t, q, g, c); });
+  E["t-count"].textContent = hits.length + " of " + TAL.length + " \u00b7 adding to rank " + state.level;
+
+  var order = [
+    {k:"home",   label:(state.home || "Homeworld")},
+    {k:"origin", label:(state.origin || "Origin")},
+    {k:"a1",     label:(state.arch1 || "Tier 1")},
+    {k:"a2",     label:(state.arch2 || "Tier 2")},
+    {k:"other",  label:"Other"}
+  ];
+  var buckets = {home:[], origin:[], a1:[], a2:[], other:[]};
+  hits.forEach(function(t){ buckets[bucketOf(t)].push(t); });
+
+  var shown = 0, LIMIT = 250, html = "";
+  order.forEach(function(sec){
+    var list = buckets[sec.k];
+    if(!list.length) return;
+    html += '<div class="secthead">' + esc(sec.label.toUpperCase()) +
+            '<span class="n">' + list.length + "</span></div>";
+    for(var i = 0; i < list.length && shown < LIMIT; i++, shown++){
+      html += talentRow(list[i]);
+    }
+    if(shown >= LIMIT && list.length) return;
+  });
+  if(shown >= LIMIT && hits.length > shown){
+    html += '<div class="trow"><div class="grow"><em>' + (hits.length - shown) +
+            " more &mdash; narrow the search.</em></div></div>";
+  }
+  E["t-list"].innerHTML = html || '<div class="trow"><div class="grow"><em>No talents match.</em></div></div>';
+}
+
+function renderSaveBanner(){
+  if(!SAVE){ E["save-banner"].innerHTML = ""; return; }
+  var sc = saveCharByKey((state.who || "").replace(/^s:/, ""));
+  var bits = ["Loaded from save <b>" + esc(SAVE.save_name || SAVE.source_file) + "</b>, imported " + esc(SAVE.imported_at) + "."];
+  if(sc){
+    bits.push("Showing <b>" + esc(sc.name) + "</b> &mdash; rank " + esc(sc.level) + ", " +
+      esc([sc.homeworld, sc.origin, sc.archetype_t1].filter(Boolean).join(" / ")) + ".");
+    if(sc.innate_characteristic && sc.innate_characteristic.length){
+      bits.push("Imperial World innate pick: <b>+10 " + esc(sc.innate_characteristic.join(", ")) + "</b>.");
+    }
+    if(sc.unmatched && sc.unmatched.length){
+      var nm = sc.unmatched.map(function(u){ return u.readable || u.blueprint || u.guid; }).filter(Boolean);
+      bits.push('<span class="miss">' + sc.unmatched.length +
+        " save pick(s) are on the ladder as <b>unresolved</b> &mdash; real picks the guide corpus " +
+        "has no entry for: " + esc(nm.join(", ")) + ".</span>");
+    }
+  }
+  bits.push('<span class="example">If you didn&rsquo;t import this save yourself, it&rsquo;s one player&rsquo;s ' +
+    "example party, so the planner opens ready to use. The companions are the same people in every " +
+    "playthrough; your own character is what will differ most. Pick a character, then change its " +
+    "rank, archetype and picks to match yours &mdash; your changes stay in this browser, and " +
+    "<b>Export</b> saves your plan to a file you can bring back with <b>Import</b>. To load your own save instead, " +
+    "run <code>python extract_tools/save_import.py</code> then <code>python extract_tools/build_artifact.py</code> " +
+    "from this guide&rsquo;s folder (see <code>artifacts/README.md</code>).</span>");
+  E["save-banner"].innerHTML = bits.join(" ");
+}
+function renderCharsNote(){
+  if(!SAVE){ E["chars-note"].textContent = ""; return; }
+  var sc = saveCharByKey((state.who || "").replace(/^s:/, ""));
+  var txt = "Advances only. The save stores every characteristic as base 30 and recomputes " +
+            "real values at load, so these are advances taken, not your in-game numbers.";
+  if(sc && sc.homeworld && SAVE.homeworld_modifiers && SAVE.homeworld_modifiers[sc.homeworld]){
+    txt += " " + sc.homeworld + " also applies " + SAVE.homeworld_modifiers[sc.homeworld] + ".";
+  }
+  E["chars-note"].textContent = txt;
+}
+
+function renderSheet(){
+  var picks = allPicks();
+  E["s-name"].textContent = state.name || "(unnamed)";
+  E["s-level"].textContent = state.level;
+  E["s-home"].textContent = state.home || "\u2014";
+  E["s-origin"].textContent = state.origin || "\u2014";
+  E["s-path"].textContent = [state.arch1, state.arch2, state.level >= 36 ? "Exemplar" : null]
+    .filter(Boolean).join(" \u2192 ") || "\u2014";
+  E["s-count"].textContent = picks.length;
+  E["s-chars"].innerHTML = STATS.map(function(s){
+    var c = state.chars[s];
+    return '<div class="kv"><b>' + esc(s) + "</b><span>+" + ((c[1]+c[2]+c[3])*5) +
+           "  (" + (c[1]*5) + "/" + (c[2]*5) + "/" + (c[3]*5) + ")</span></div>";
+  }).join("");
+  var blocks = [1,2,3].map(function(n){
+    var inT = picksInTier(n);
+    if(!inT.length) return "";
+    var label = n === 1 ? "Tier 1" : (n === 2 ? "Tier 2" : "Exemplar");
+    /* The summary sheet goes through the same choke point as every other
+       surface -- it previously rendered names and effects with no confidence
+       envelope at all, which is the bypass this refactor exists to make
+       impossible. */
+    return "<h3>" + label + "</h3>" +
+      inT.map(function(p){
+        return '<div class="pick sheetpick">' +
+               talentCard(p.name, {sub: "Rank " + p.level}) + "</div>";
+      }).join("");
+  }).join("");
+  E["s-talents"].innerHTML = blocks || "<p><em>No talents chosen yet.</em></p>";
+}
+
+function renderAll(){
+  renderLevel(); renderLadder(); renderChars(); renderSheet();
+  renderSaveBanner(); renderCharsNote(); save();
+}
+
+/* ---------- save-state import -------------------------------------------- */
+function applySaveCharacter(sc){
+  if(!sc) return;
+  state.name = sc.name || "";
+  state.who = "s:" + sc.key;
+  state.home = sc.homeworld || "";
+  state.origin = sc.origin || "";
+  state.level = sc.level || 1;
+  state.arch1 = sc.archetype_t1 || "";
+  state.arch2 = sc.archetype_t2 || "";
+  state.byLevel = {};
+  var bl = sc.picks_by_level || {};
+  Object.keys(bl).forEach(function(l){ state.byLevel[l] = bl[l].slice(); });
+  state.unresolvedByLevel = sc.unresolved_by_level || {};
+  STATS.forEach(function(s){ state.chars[s] = {1:0,2:0,3:0}; });
+  var adv = sc.characteristic_advances || {};
+  Object.keys(adv).forEach(function(stat){
+    if(!state.chars[stat]) return;
+    var a = adv[stat];
+    state.chars[stat][1] = (a["chargen"] || 0) + (a["1"] || 0);
+    state.chars[stat][2] = a["2"] || 0;
+    state.chars[stat][3] = a["3"] || 0;
+  });
+}
+
+/* ---------- persistence -------------------------------------------------- */
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function load(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(!raw) return false;
+    var s = JSON.parse(raw);
+    if(s && s.byLevel){
+      state = s;
+      STATS.forEach(function(k){ if(!state.chars[k]) state.chars[k] = {1:0,2:0,3:0}; });
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+function isUntouched(s){
+  return !s.name && !s.arch1 && !s.arch2 && !s.home && !s.origin &&
+         (s.level || 1) === 1 && !Object.keys(s.byLevel || {}).length;
+}
+function seedFromSave(){
+  if(!SAVEC.length) return false;
+  applySaveCharacter(SAVEC.filter(function(c){ return c.is_main_character; })[0] || SAVEC[0]);
+  return true;
+}
+function applyStateToForm(){
+  E["f-name"].value = state.name || "";
+  E["f-who"].value = state.who || "rt";
+  E["f-home"].value = state.home || "";
+  E["f-origin"].value = state.origin || "";
+}
+
+/* ---------- events ------------------------------------------------------- */
+function setLevel(v){
+  state.level = Math.max(1, Math.min(MAXLVL, v));
+  renderAll(); renderList();
+}
+E["lvl-dec"].addEventListener("click", function(){ setLevel(state.level - 1); });
+E["lvl-inc"].addEventListener("click", function(){ setLevel(state.level + 1); });
+E["jump-t1"].addEventListener("click", function(){ setLevel(1); });
+E["jump-t2"].addEventListener("click", function(){ setLevel(16); });
+E["jump-t3"].addEventListener("click", function(){ setLevel(36); });
+E["jump-max"].addEventListener("click", function(){ setLevel(MAXLVL); });
+document.addEventListener("keydown", function(ev){
+  var tag = (ev.target.tagName || "").toLowerCase();
+  if(tag === "input" || tag === "select" || tag === "textarea") return;
+  if(ev.key === "ArrowUp" || ev.key === "ArrowRight"){ setLevel(state.level + 1); ev.preventDefault(); }
+  if(ev.key === "ArrowDown" || ev.key === "ArrowLeft"){ setLevel(state.level - 1); ev.preventDefault(); }
+});
+
+E["f-name"].addEventListener("input", function(){ state.name = this.value; renderSheet(); save(); });
+E["f-who"].addEventListener("change", function(){
+  state.who = this.value;
+  var sc = saveCharByKey(this.value.replace(/^s:/, ""));
+  if(sc){ applySaveCharacter(sc); applyStateToForm(); }
+  E["mast-sub"].textContent = (sc ? sc.name : "Rogue Trader") + " \u00b7 build planner";
+  renderAll(); renderList();
+});
+E["f-home"].addEventListener("change", function(){ state.home = this.value; renderSheet(); save(); });
+E["f-origin"].addEventListener("change", function(){ state.origin = this.value; renderSheet(); save(); });
+
+/* Archetype selects live inside the ladder, so they are re-created on every
+   render -- delegate instead of binding them directly. */
+E["ladder"].addEventListener("change", function(ev){
+  if(ev.target.id === "sel-a1"){
+    state.arch1 = ev.target.value;
+    var un = (ARCH[state.arch1] && ARCH[state.arch1].unlocks) || [];
+    if(un.indexOf(state.arch2) < 0) state.arch2 = "";
+    renderAll();
+  }else if(ev.target.id === "sel-a2"){
+    state.arch2 = ev.target.value; renderAll();
+  }
+});
+E["ladder"].addEventListener("click", function(ev){
+  var rm = ev.target.closest("button[data-rm]");
+  if(rm){
+    var parts = rm.getAttribute("data-rm").split(":");
+    var arr = state.byLevel[parts[0]] || [];
+    arr.splice(+parts[1], 1);
+    if(!arr.length) delete state.byLevel[parts[0]];
+    renderAll(); return;
+  }
+  var row = ev.target.closest(".rank");
+  if(row) setLevel(+row.getAttribute("data-lv"));
+});
+
+["f-search","f-group","f-cat"].forEach(function(id){
+  E[id].addEventListener("input", renderList);
+  E[id].addEventListener("change", renderList);
+});
+E["t-list"].addEventListener("click", function(ev){
+  var b = ev.target.closest("button[data-add]");
+  if(!b) return;
+  var nm = b.getAttribute("data-add"), L = String(state.level);
+  var arr = state.byLevel[L] || (state.byLevel[L] = []);
+  if(arr.indexOf(nm) >= 0){
+    b.textContent = "On rank " + L;
+    setTimeout(function(){ b.textContent = "Add"; }, 1000); return;
+  }
+  arr.push(nm);
+  b.textContent = "\u2713 rank " + L;
+  setTimeout(function(){ b.textContent = "Add"; }, 1000);
+  renderAll();
+});
+
+E["chars-body"].addEventListener("click", function(ev){
+  var b = ev.target.closest("button[data-st]");
+  if(!b) return;
+  var parts = b.getAttribute("data-st").split(":");
+  var tier = tierOf(state.level);
+  var v = state.chars[parts[0]][tier] + (+parts[1]);
+  state.chars[parts[0]][tier] = v < 0 ? 0 : v;
+  renderChars(); renderSheet(); save();
+});
+
+E["btn-sheet"].addEventListener("click", function(){
+  var on = E["sheet"].classList.toggle("show");
+  this.textContent = on ? "Hide summary" : "Summary";
+  if(on){ renderSheet(); E["sheet"].scrollIntoView({block:"start"}); }
+});
+E["btn-export"].addEventListener("click", function(){
+  var blob = new Blob([JSON.stringify(state, null, 1)], {type:"application/json"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = (state.name || "rogue-trader").replace(/[^a-z0-9]+/gi,"-").toLowerCase() + "-build.json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+});
+E["btn-import"].addEventListener("click", function(){
+  var inp = document.createElement("input");
+  inp.type = "file"; inp.accept = "application/json,.json";
+  inp.addEventListener("change", function(){
+    var f = inp.files && inp.files[0];
+    if(!f) return;
+    var fr = new FileReader();
+    fr.onload = function(){
+      try{
+        var s = JSON.parse(fr.result);
+        if(!s || !s.byLevel) throw new Error("not a build file from this planner");
+        state = s;
+        STATS.forEach(function(k){ if(!state.chars[k]) state.chars[k] = {1:0,2:0,3:0}; });
+        applyStateToForm(); renderAll(); renderList();
+      }catch(e){ alert("Could not read that build file: " + e.message); }
+    };
+    fr.readAsText(f);
+  });
+  inp.click();
+});
+E["btn-reset"].addEventListener("click", function(){
+  var toSave = SAVEC.length && confirm(
+    "Reset this build.\n\nOK = back to your imported save state.\nCancel = a blank sheet.");
+  state = {name:"",who:"rt",home:"",origin:"",level:1,arch1:"",arch2:"",byLevel:{},chars:{}};
+  STATS.forEach(function(s){ state.chars[s] = {1:0,2:0,3:0}; });
+  if(toSave) seedFromSave();
+  applyStateToForm(); renderAll(); renderList();
+});
+E["btn-theme"].addEventListener("click", function(){
+  var order = ["auto","light","dark"];
+  var cur = document.documentElement.getAttribute("data-theme") || "auto";
+  var next = order[(order.indexOf(cur) + 1) % 3];
+  document.documentElement.setAttribute("data-theme", next);
+  this.textContent = "Theme: " + next;
+  try{ localStorage.setItem(KEY + "-theme", next); }catch(e){}
+});
+
+/* ---------- boot --------------------------------------------------------- */
+try{
+  var th = localStorage.getItem(KEY + "-theme");
+  if(th){ document.documentElement.setAttribute("data-theme", th); E["btn-theme"].textContent = "Theme: " + th; }
+}catch(e){}
+
+if(!load() || isUntouched(state)) seedFromSave();
+applyStateToForm();
+renderAll();
+renderList();
+/* Bring the current rank into view without yanking the whole page. offsetTop is
+   relative to the tier <section>, not the scroll box, so measure against the
+   ladder's own box instead. */
+function scrollToCurrentRank(){
+  var row = E["ladder"].querySelector(".rank.cur");
+  if(!row) return;
+  var delta = row.getBoundingClientRect().top - E["ladder"].getBoundingClientRect().top;
+  E["ladder"].scrollTop = Math.max(0, E["ladder"].scrollTop + delta - 96);
+}
+scrollToCurrentRank();
+
+E["prov"].innerHTML =
+  "<b>" + esc(DATA.game) + "</b> &middot; patch " + esc(DATA.patch) + " &middot; " +
+  DATA.counts.total + " talents (" + DATA.counts.from_corpus + " corpus, " +
+  DATA.counts.added_from_fextralife + " wiki). Generated " + esc(DATA.generated) +
+  ". Archetype access: " + esc(DATA.archetype_source) +
+  " Where sources disagree, the corpus wins.";
+/* ---------------------------------------------------------------------------
+   INTEGRITY FLOOR. The regeneration pipeline is a black box to the player, and
+   truncated-but-valid JSON parses cleanly and renders with NO error -- nothing
+   otherwise distinguishes "this character has no talents" from "this
+   character's talents did not survive the export". These assertions fire only
+   on IMPOSSIBLE states, never on routine version drift, so they cannot train
+   the reflex-dismissal that kills a noisy banner.
+   --------------------------------------------------------------------------- */
+function runIntegrityChecks(){
+  var fails = [];
+  if(SAVE){
+    if(!SAVEC.length){
+      fails.push("the save state embedded in this file contains no characters");
+    }
+    SAVEC.forEach(function(c){
+      var lvl = c.level || 0;
+      Object.keys(c.picks_by_level || {}).forEach(function(l){
+        if(+l > lvl){
+          fails.push(c.name + " has a talent placed at rank " + l +
+                     " but is only rank " + lvl);
+        }
+      });
+      if(!c.archetype_t1 && lvl >= 1){
+        fails.push(c.name + " has no Tier 1 archetype despite being rank " + lvl);
+      }
+      if(lvl >= 16 && !c.archetype_t2){
+        fails.push(c.name + " is rank " + lvl + " but carries no Tier 2 archetype");
+      }
+    });
+  }
+  // every placed name must resolve, or be declared unresolved -- never silently absent
+  Object.keys(state.byLevel).forEach(function(l){
+    state.byLevel[l].forEach(function(nm){
+      if(NAME2I[nm] === undefined){
+        fails.push('rank ' + l + ' holds "' + nm + '", which is not in the talent set');
+      }
+    });
+  });
+  var tiersSeen = {};
+  STATS.forEach(function(s){
+    [1,2,3].forEach(function(t){
+      var v = state.chars[s][t];
+      if(typeof v !== "number" || v < 0) tiersSeen[s] = true;
+    });
+  });
+  Object.keys(tiersSeen).forEach(function(s){
+    fails.push("characteristic advances for " + s + " are not a valid count");
+  });
+  return fails;
+}
+
+var integrity = runIntegrityChecks();
+if(integrity.length){
+  var box = document.createElement("div");
+  box.className = "savebanner integrity";
+  box.innerHTML = "<b>Integrity check failed &mdash; this sheet may be incomplete.</b> " +
+    integrity.map(esc).join(" &middot; ") +
+    " &middot; Re-run <code>save_import.py</code> and <code>build_artifact.py</code>; if it persists the export is truncated.";
+  E["save-banner"].parentNode.insertBefore(box, E["save-banner"].nextSibling);
+}
+
+E["selfcheck"].innerHTML = missing.length
+  ? '<span style="color:var(--blood)"><b>Self-check FAILED</b> &mdash; missing ids: ' + esc(missing.join(", ")) + "</span>"
+  : '<span style="color:var(--ok)">Self-check passed &mdash; all ' + IDS.length + " wired element ids present.</span>";
+})();
+</script>
+</body>
+</html>
