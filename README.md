@@ -1,34 +1,31 @@
-# Warhammer 40,000: Rogue Trader — Hintforge Companion
+# Warhammer 40,000: Rogue Trader
 
-![Rogue Trader companion status — coverage, how current it is, spoiler control, and save reader](assets/readme-status-card.svg)
+![Rogue Trader companion status: coverage, how current it is, spoiler control, and save reader](assets/readme-status-card.svg)
 
-![Build planner built on this corpus — a character's rank ladder with each talent on the rank it was taken, a confidence badge on every entry, a searchable browser of all 900 talents and abilities, and a characteristics panel showing advances against the game's own focus hints](assets/readme-build-planner.png)
+![Build planner built on this corpus: a character's rank ladder with each talent on the rank it was taken, a confidence badge on every entry, a searchable browser of all 900 talents and abilities, and a characteristics panel showing advances against the game's own focus hints](assets/readme-build-planner.png)
 
-A spoiler-controlled hint companion for **Warhammer 40,000: Rogue Trader**, Owlcat's grimdark CRPG in the Koronus Expanse. Built in the [Hintforge](https://github.com/hintforge/builder) format: a loyal sidekick that answers only from these guide files — never from guesswork — at the spoiler level you set, and that tracks where you are so you can step away for months and pick right back up.
+A free hint guide for Warhammer 40,000: Rogue Trader, with spoiler levels you control. Get help with Owlcat's grimdark CRPG in the Koronus Expanse. Your AI agent answers only from the guide files and tracks your place between sessions.
 
 ## Use it
 
-You need a Hintforge reader running in Claude Code, Codex, or OpenClaw. Point it at this repo:
+Install the [reader](https://github.com/hintforge/reader) in any AI agent that can read files on your computer, then tell it:
 
 > Load the Rogue Trader guide from github.com/hintforge/warhammer-40-000-rogue-trader
 
-Then just ask — *"how do I build this companion," "how do I beat this fight," "where was I."* Runtime setup lives in [`hintforge/reader`](https://github.com/hintforge/reader).
+Try "how do I build this companion", "how do I beat this fight" or "where was I".
 
-## How current it is
+The guide uses the [Hintforge](https://github.com/hintforge/builder) format. The agent reads and writes only files you control.
 
-This guide was last verified against **Build 21262645 (May 2026)**. The game has since moved on — **Patch 1.6 and The Infinite Museion DLC (June–July 2026)** landed after that check — so newer patch changes and the latest DLC content aren't reflected yet. Everything it *does* cover is deep (the full base campaign — mechanics, crew, factions, items, and all achievements); it just hasn't caught up to the newest release. That's why the card is stamped **"CHECKED"** rather than "VERIFIED."
+## Spoilers
 
-## Spoilers & the save reader
-
-**You** control how much this guide volunteers, through two independent dials you set:
-
-- **Enemy warnings (Tier 0–5)** — from "say nothing" up to full boss strategy.
-- **Puzzle warnings (Tier 0–3)** — from "silent, ask when you want a hint" up to a step-by-step walkthrough.
-
-Both start **silent** — the guide volunteers nothing pre-emptively until you raise a dial. The guide only honors what you set.
-
-Rogue Trader's saves are readable, so the companion can recap your saves and resolved party/game state. As with any save reading, that's the one surface where a spoiler could slip — so it's the place to watch — but no leak has been recorded for this guide.
+Enemy warnings (Tier 0 to 5) and puzzle hints (Tier 0 to 3) start silent. Raise either dial for more help, up to boss strategy or a walkthrough. Save recaps can reveal party and game state. No save-reader leak has been recorded.
 
 ## What's inside
 
-A structured Markdown corpus — mechanics (deep stat math), crew/companions, factions, items, puzzles, quests, and all achievements — plus a save importer (`extract_tools/save_import.py`) that loads your own party from a save into the build planner; `artifacts/README.md` has the two commands. An interactive build planner ships at `artifacts/build_planner.html`: open it in a browser and it starts on one player's example party, so it is useful straight away. The companions are the same people in every playthrough; change the character, rank and picks on the page to match yours, and use Export / Import to keep your plan. The companion reads and writes only the files you control.
+- The full base campaign: quests, puzzles, crew, factions, items, detailed stat math and all achievements.
+- An interactive build planner at `artifacts/build_planner.html`. It opens with an example party. Change characters, ranks and picks to match yours; Export / Import keeps your plan.
+- `extract_tools/save_import.py` imports your party into the planner. See `artifacts/README.md` for the two commands.
+
+## How current it is
+
+Last checked against Build 21262645 (May 2026). Patch 1.6 and The Infinite Museion DLC arrived in June and July 2026, after that check. Their changes and content aren't reflected yet.
