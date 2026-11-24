@@ -80,7 +80,7 @@ _source: P3 research cascade 2026-05-23 · capture: web_fetch · confidence: hig
 
 ## Community Weapon Tier Consensus (Patch 1.5)
 
-| Tier | Weapons |
+| Rank | Weapons |
 |---|---|
 | S | Plasma (buffed post-1.5), Heavy bolter (Ryzza), Calibrated heavy stubber |
 | A | Arc rifle, Force sword (psyker builds), Melta (anti-armor), Drukhari sniper |

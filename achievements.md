@@ -814,7 +814,7 @@ _source: TrueSteamAchievements DLC list 2026-09-07 · capture: web_fetch · conf
 - **id:** Historical_Excavation | **hidden:** no | **global:** 2.6%
 - **trigger:** Solve the puzzle in the lost tomb on Zarkov
 - **missable:** unknown
-- **puzzle-tier:** 1 | **spoiler:** unknown
+- **enemy-tier:** 0 | **puzzle-tier:** 1 | **spoiler:** unknown
 - **_source:** Steam global achievements page, description text, 2026-09-07
 
 ### Full Work-Up
@@ -828,7 +828,7 @@ _source: TrueSteamAchievements DLC list 2026-09-07 · capture: web_fetch · conf
 - **id:** Vandal | **hidden:** no | **global:** 1.9%
 - **trigger:** Solve the puzzle in the Museion
 - **missable:** unknown
-- **puzzle-tier:** 1 | **spoiler:** unknown
+- **enemy-tier:** 0 | **puzzle-tier:** 1 | **spoiler:** unknown
 - **_source:** Steam global achievements page, description text, 2026-09-07
 
 ### Clear Vision
@@ -933,7 +933,7 @@ _source: TrueSteamAchievements DLC list 2026-09-07 · capture: web_fetch · conf
 - **id:** Promethium_Master | **hidden:** no | **global:** 2.0%
 - **trigger:** Solve the puzzle on Tirkuaz-4
 - **missable:** unknown
-- **puzzle-tier:** 1 | **spoiler:** unknown
+- **enemy-tier:** 0 | **puzzle-tier:** 1 | **spoiler:** unknown
 - **_source:** Steam global achievements page, description text, 2026-09-07
 
 ### Family Ties (HIDDEN)
